@@ -14,7 +14,7 @@
 
 </div>
 
-![AgriVisit](assets/images/AgriVisit.jpg)
+![AgriVisit](images/AgriVisit.jpg)
 
 <br>
 
