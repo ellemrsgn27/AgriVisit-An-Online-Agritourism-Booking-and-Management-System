@@ -1,0 +1,65 @@
+:root {
+  --color-canvas: #f7f6f0;
+  --color-surface: #ffffff;
+  --color-border: #e1e4da;
+  --color-border-strong: #d4d9c7;
+
+  --color-ink: #25372c;
+  --color-ink-muted: #727a70;
+  --color-ink-soft: #626e60;
+
+  --color-brand: #355e43;
+  --color-brand-hover: #2b4c36;
+  --color-brand-soft: #eaf0e4;
+
+  --color-danger: #a84a3b;
+  --color-danger-soft: #f6e8e4;
+  --color-warning: #8a5a16;
+  --color-warning-soft: #f7eed8;
+
+  --font-display: "Lora", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --text-display: 36px;
+  --text-wordmark: 26px;
+  --text-h3: 18px;
+  --text-body: 14px;
+  --text-small: 13px;
+  --text-label: 12px;
+
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-pill: 100px;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --page-max-width: 1440px;
+  --page-gutter: 48px;
+  --header-height: 88px;
+
+  --shadow-card: 0 2px 10px rgba(36, 62, 38, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}

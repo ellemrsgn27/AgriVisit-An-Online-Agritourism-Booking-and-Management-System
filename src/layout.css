@@ -1,0 +1,204 @@
+/* Shared page frame for the React screens */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--page-gutter);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.site-footer__note {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* Log in / sign up: story panel beside the form */
+.auth-shell {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--page-gutter) var(--space-12);
+}
+
+.auth-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+.auth-story {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  min-height: 480px;
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-brand);
+  background-image: linear-gradient(160deg, #3c6a4c 0%, #355e43 55%, #27462f 100%);
+  color: #f3f6ee;
+}
+
+.auth-story__eyebrow {
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #cfe0c8;
+}
+
+.auth-story__heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.auth-story__text {
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  color: #d9e6d3;
+}
+
+.auth-story__places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.auth-story__places span {
+  padding: 4px var(--space-3);
+  border: 1px solid rgba(243, 246, 238, 0.35);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-label);
+}
+
+.auth-form-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.auth-form-panel__heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--color-ink);
+}
+
+.auth-form-panel__text {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.auth-role-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand-soft);
+}
+
+.auth-role-switch__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+.auth-role-switch__option.is-active {
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.auth-role-switch__option svg {
+  width: 16px;
+  height: 16px;
+}
+
+.auth-form-panel .button {
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-hint {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+.auth-hint a {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+.owner-home-link {
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-brand);
+}
+
+@media (max-width: 860px) {
+  .auth-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .auth-story {
+    min-height: 220px;
+  }
+
+  .auth-form-panel {
+    padding: var(--space-5);
+  }
+
+  .site-header__inner {
+    flex-wrap: wrap;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .nav-toggle {
+    display: grid;
+  }
+
+  .primary-navigation {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) 0 var(--space-2);
+  }
+
+  .primary-navigation.is-open {
+    display: flex;
+  }
+
+  .account-actions {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+}
