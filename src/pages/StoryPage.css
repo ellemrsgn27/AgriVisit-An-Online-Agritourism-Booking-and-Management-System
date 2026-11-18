@@ -1,0 +1,374 @@
+.our-story {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.our-story__label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+}
+
+.our-story__headline,
+.our-story__title-lg,
+.our-story__title-md,
+.our-story__section-title,
+.our-story__system-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: -0.6px;
+}
+
+.our-story__headline {
+  font-size: 56px;
+  line-height: 1.15;
+}
+
+.our-story__title-lg {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.our-story__title-md {
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+.our-story__section-title {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.our-story__system-title {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.our-story__lead {
+  margin: 0;
+  max-width: 555px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+
+.our-story__body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.our-story__body--lg {
+  font-size: 16px;
+}
+
+.our-story__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.our-story__button--solid {
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+.our-story__button--solid:hover {
+  background: var(--color-brand-hover);
+}
+
+.our-story__button--outline {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-brand);
+}
+
+.our-story__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.our-story__figure figcaption {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+.our-story__photo {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+
+.our-story__photo--hero {
+  height: 420px;
+}
+
+.our-story__photo--growers {
+  height: 540px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.our-story__hero {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 56px 64px;
+}
+
+.our-story__hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 555px;
+  flex-shrink: 0;
+}
+
+.our-story__why {
+  background: #efebdd;
+  padding: 64px 110px;
+}
+
+.our-story__why-grid {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.our-story__why-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 480px;
+  flex-shrink: 0;
+}
+
+.our-story__why-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.our-story__growers {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 64px;
+}
+
+.our-story__growers-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.our-story__cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 64px;
+}
+
+.our-story__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.our-story__card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.our-story__card-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-brand);
+}
+
+.our-story__card-title {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--color-ink);
+}
+
+.our-story__card-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.our-story__guest {
+  display: flex;
+  gap: 80px;
+  padding: 64px;
+  background: #e8efe6;
+}
+
+.our-story__guest-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 420px;
+  flex-shrink: 0;
+}
+
+.our-story__rules {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.our-story__rule-title {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.our-story__system {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 64px 110px;
+  border-bottom: 1px solid var(--color-border);
+  max-width: 1200px;
+}
+
+.our-story__credits {
+  margin: 12px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-muted);
+}
+
+.our-story__closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 72px 64px;
+}
+
+.our-story__closing-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.our-story__closing-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.our-story__closing-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.our-story__owner-link {
+  font-size: 12px;
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .our-story__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .our-story__hero,
+  .our-story__growers,
+  .our-story__why-grid,
+  .our-story__guest,
+  .our-story__closing {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .our-story__hero,
+  .our-story__growers,
+  .our-story__cards-section,
+  .our-story__closing,
+  .our-story__system {
+    padding: 32px 20px;
+  }
+
+  .our-story__why,
+  .our-story__guest {
+    padding: 40px 20px;
+  }
+
+  .our-story__hero-copy,
+  .our-story__why-intro,
+  .our-story__guest-copy {
+    width: auto;
+  }
+
+  .our-story__headline {
+    font-size: 36px;
+  }
+
+  .our-story__closing-actions {
+    align-items: flex-start;
+  }
+
+  .our-story__photo--growers,
+  .our-story__photo--hero {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .our-story__cards {
+    grid-template-columns: 1fr;
+  }
+}
