@@ -9,22 +9,40 @@ const tabs = [
   { key: 'completed', label: 'Checked in' },
 ];
 
+const statusLabel = {
+  pending: 'Awaiting confirmation',
+  confirmed: 'Confirmed',
+  completed: 'Checked in',
+};
+
 export default function OwnerBookingsPage() {
   const [filter, setFilter] = useState('all');
-  const shown = filter === 'all' ? bookings : bookings.filter((b) => b.status === filter);
+  const [rows, setRows] = useState(bookings);
+
+  const shown = filter === 'all' ? rows : rows.filter((b) => b.status === filter);
+
+  function confirm(ref) {
+    setRows((list) => list.map((b) => (b.ref === ref ? { ...b, status: 'confirmed' } : b)));
+  }
+
+  function decline(ref) {
+    setRows((list) => list.filter((b) => b.ref !== ref));
+  }
 
   return (
     <OwnerLayout title="Bookings">
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Bookings</h1>
-          <p className="console-heading__text">Confirm new visits and see who is coming.</p>
+          <p className="console-heading__text">
+            Confirm requests, watch your slot counts, and keep arrival times clear.
+          </p>
         </div>
       </div>
 
-      <div className="booking-tabs" role="tablist" aria-label="Booking filters">
+      <div className="booking-tabs" role="tablist" aria-label="Owner booking filters">
         {tabs.map((t) => {
-          const count = t.key === 'all' ? bookings.length : bookings.filter((b) => b.status === t.key).length;
+          const count = t.key === 'all' ? rows.length : rows.filter((b) => b.status === t.key).length;
           return (
             <button
               key={t.key}
@@ -52,6 +70,25 @@ export default function OwnerBookingsPage() {
               <p className="owner-booking-row__sub">{b.guests} guests &middot; {b.experience}</p>
             </div>
             <p className="owner-booking-row__total">{peso(b.total)}</p>
+            <span className={`booking-status booking-status--${b.status}`}>{statusLabel[b.status]}</span>
+            <div className="owner-booking-row__actions">
+              {b.status === 'pending' && (
+                <>
+                  <button className="button button--primary" type="button" onClick={() => confirm(b.ref)}>
+                    Confirm
+                  </button>
+                  <button className="link-button link-button--danger" type="button" onClick={() => decline(b.ref)}>
+                    Decline
+                  </button>
+                </>
+              )}
+              {b.status === 'confirmed' && (
+                <button className="button button--ghost" type="button">Message guest</button>
+              )}
+              {b.status === 'completed' && (
+                <button className="button button--ghost" type="button">View ticket</button>
+              )}
+            </div>
           </article>
         ))}
       </div>

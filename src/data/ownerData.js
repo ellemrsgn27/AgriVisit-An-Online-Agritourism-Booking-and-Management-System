@@ -1,15 +1,14 @@
-// Sample data for the farm owner workspace. Replace with real data later.
-
 export const farm = {
   name: 'Hiraya Family Farm',
   intro: 'Three generations growing calamansi, greens and herbs on a slope above Lipa.',
   city: 'Lipa, Batangas',
+  pin: '13.9411\u00B0 N, 121.1639\u00B0 E',
   owner: 'Maya Santos',
   status: 'Farm approved',
   experiences: [
-    { id: 'orchard-walk', name: 'Orchard walk', price: 650, guests: 12, time: '9:00 AM' },
-    { id: 'breakfast', name: 'Farm breakfast', price: 420, guests: 8, time: '7:30 AM' },
-    { id: 'herb-workshop', name: 'Herb workshop', price: 800, guests: 10, time: '11:00 AM' },
+    { id: 'orchard-walk', name: 'Orchard walk & calamansi picking', category: 'Fruit picking', duration: '2 hours', price: 650, guests: 12, slotsLeft: 8, time: 'Sat 9:00 AM', status: 'published', image: '/images/story/farm-landscape.jpg' },
+    { id: 'breakfast', name: 'Farm-to-table breakfast', category: 'Farm-to-table', duration: '90 minutes', price: 420, guests: 10, slotsLeft: 5, time: 'Sun 7:30 AM', status: 'published', image: '/images/story/farm-growers.jpg' },
+    { id: 'herb-workshop', name: 'Seedling workshop for families', category: 'Workshops', duration: '2 hours', price: 450, guests: 12, slotsLeft: null, time: 'No schedule yet', status: 'draft', image: '/images/story/farm-landscape.jpg' },
   ],
 };
 
@@ -23,9 +22,15 @@ export const bookings = [
 ];
 
 export const reviews = [
-  { id: 1, name: 'Anna Lim', rating: 5, text: 'The calamansi picking was so fun. Kids loved it.', status: 'published' },
-  { id: 2, name: 'Carlo B.', rating: 2, text: 'Parking was hard to find. Otherwise nice.', status: 'waiting' },
-  { id: 3, name: 'Mia T.', rating: 5, text: 'Breakfast was fresh and warm. Will come back.', status: 'waiting' },
+  { id: 1, name: 'Andrea Mendoza', initials: 'AM', rating: 5, experience: 'Orchard walk', date: '24 Oct 2026', status: 'published', text: 'Kuya Ramon let the kids pick as much as they wanted and taught them how to tell a ripe fruit. We left with two baskets and a new habit.' },
+  { id: 2, name: 'Jomar Dela Cruz', initials: 'JD', rating: 4.8, experience: 'Orchard walk', date: '8 Oct 2026', status: 'waiting', text: 'Easy check-in with the QR at the gate. The orchard is steep in places, so wear proper shoes.' },
+  { id: 3, name: 'Anna Lim', initials: 'AL', rating: 5, experience: 'Farm breakfast', date: '24 Oct 2026', status: 'published', text: 'Breakfast was fresh and warm. Will come back with my cousins.' },
+];
+
+export const openingDays = [
+  { day: 'Saturday', hours: '8:00 AM \u2013 4:00 PM' },
+  { day: 'Sunday', hours: '8:00 AM \u2013 4:00 PM' },
+  { day: 'Monday to Friday', hours: 'Closed' },
 ];
 
 export const monthlyIncome = [

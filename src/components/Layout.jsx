@@ -40,6 +40,9 @@ export default function Layout({ children }) {
             <NavLink className="primary-navigation__link" to="/story" onClick={() => setOpen(false)}>
               Our story
             </NavLink>
+            <NavLink className="primary-navigation__link" to="/bookings" onClick={() => setOpen(false)}>
+              My bookings
+            </NavLink>
 
             <div className="account-actions">
               <Link className="account-actions__host" to="/register/owner" onClick={() => setOpen(false)}>

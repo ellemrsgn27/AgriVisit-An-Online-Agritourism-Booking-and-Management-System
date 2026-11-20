@@ -14,6 +14,17 @@ import OwnerBookingsPage from './pages/owner/OwnerBookingsPage.jsx';
 import OwnerQrCheckinPage from './pages/owner/OwnerQrCheckinPage.jsx';
 import OwnerReviewsPage from './pages/owner/OwnerReviewsPage.jsx';
 import OwnerRevenuePage from './pages/owner/OwnerRevenuePage.jsx';
+import AdminSignInPage from './pages/admin/AdminSignInPage.jsx';
+import AdminOverviewPage from './pages/admin/AdminOverviewPage.jsx';
+import AdminApprovalsPage from './pages/admin/AdminApprovalsPage.jsx';
+import AdminUsersPage from './pages/admin/AdminUsersPage.jsx';
+import AdminCategoriesPage from './pages/admin/AdminCategoriesPage.jsx';
+import AdminModerationPage from './pages/admin/AdminModerationPage.jsx';
+import AdminReportsPage from './pages/admin/AdminReportsPage.jsx';
+import AdminSettingsPage from './pages/admin/AdminSettingsPage.jsx';
+import FarmPage from './pages/FarmPage.jsx';
+import CheckoutPage from './pages/CheckoutPage.jsx';
+import BookingsPage from './pages/BookingsPage.jsx';
 
 export default function App() {
   return (
@@ -22,6 +33,9 @@ export default function App() {
       <Route path="/story" element={<StoryPage />} />
       <Route path="/discovery" element={<DiscoveryPage />} />
       <Route path="/experiences" element={<ExperiencesPage />} />
+      <Route path="/farm" element={<FarmPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/bookings" element={<BookingsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register/tourist" element={<TouristRegisterPage />} />
       <Route path="/register/owner" element={<OwnerRegisterPage />} />
@@ -34,6 +48,15 @@ export default function App() {
       <Route path="/owner/qr-checkin" element={<OwnerQrCheckinPage />} />
       <Route path="/owner/reviews" element={<OwnerReviewsPage />} />
       <Route path="/owner/revenue" element={<OwnerRevenuePage />} />
+      <Route path="/admin" element={<Navigate to="/admin/overview" replace />} />
+      <Route path="/admin/sign-in" element={<AdminSignInPage />} />
+      <Route path="/admin/overview" element={<AdminOverviewPage />} />
+      <Route path="/admin/approvals" element={<AdminApprovalsPage />} />
+      <Route path="/admin/users" element={<AdminUsersPage />} />
+      <Route path="/admin/categories" element={<AdminCategoriesPage />} />
+      <Route path="/admin/moderation" element={<AdminModerationPage />} />
+      <Route path="/admin/reports" element={<AdminReportsPage />} />
+      <Route path="/admin/settings" element={<AdminSettingsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

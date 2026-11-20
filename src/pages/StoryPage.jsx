@@ -60,7 +60,7 @@ export default function StoryPage() {
           <figure className="our-story__figure">
             <img
               className="our-story__photo our-story__photo--hero"
-              src="/images/story/farm-landscape.png"
+              src="/images/story/farm-landscape.jpg"
               alt="A working landscape of farm plots"
             />
             <figcaption>A working landscape. A place to learn, connect and slow down.</figcaption>
@@ -96,7 +96,7 @@ export default function StoryPage() {
         <section className="our-story__growers">
           <img
             className="our-story__photo our-story__photo--growers"
-            src="/images/story/farm-growers.png"
+            src="/images/story/farm-growers.jpg"
             alt="A grower leading visitors through the farm"
           />
           <div className="our-story__growers-copy">

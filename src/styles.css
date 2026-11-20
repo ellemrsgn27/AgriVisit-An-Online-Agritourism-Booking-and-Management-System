@@ -1927,7 +1927,7 @@ select.input__control {
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-3);
 }
 
@@ -3578,9 +3578,13 @@ fieldset.checkout-section {
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .profile-photo-row img {
+  width: 220px;
+  height: 132px;
+  object-fit: cover;
   border-radius: var(--radius-md);
   flex: none;
 }
@@ -3897,7 +3901,7 @@ fieldset.checkout-section {
   display: flex;
   align-items: flex-end;
   gap: var(--space-3);
-  min-height: 190px;
+  height: 190px;
   padding-top: var(--space-3);
 }
 
@@ -4170,7 +4174,7 @@ body.is-console .service-footer {
   }
 
   .chart {
-    min-height: 150px;
+    height: 150px;
   }
 }
 

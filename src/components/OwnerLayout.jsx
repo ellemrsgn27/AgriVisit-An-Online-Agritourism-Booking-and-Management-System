@@ -19,7 +19,6 @@ const menu = [
 ];
 
 export default function OwnerLayout({ title, children }) {
-  // The owner workspace hides the tourist header and footer (see styles.css)
   useEffect(() => {
     document.body.classList.add('is-console');
     return () => document.body.classList.remove('is-console');
