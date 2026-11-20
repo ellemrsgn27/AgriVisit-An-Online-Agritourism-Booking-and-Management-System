@@ -20,6 +20,28 @@
 
 ---
 
+## Setup: Connecting the Database (Supabase)
+
+1. Copy `.env.example` and rename the copy to `.env` in the project folder.
+2. Open `.env` and paste your own Supabase Project URL and anon (public) key after the `=` signs.
+3. Never commit `.env` to git. It is listed in `.gitignore` to keep your keys private.
+4. Until the database is connected, the app shows sample data from `src/services/agriData.js`.
+
+---
+
+## Unfinished Screens
+
+These screens still need work before the app is complete:
+
+- **Public pages** (Home, Discovery, Experiences, Farm, Checkout, Bookings): still use their own sample data, not the data layer.
+- **Sign-in and sign-up** (Login, Tourist Register, Owner Register, Admin Sign-In, Pending Approval): not yet connected to real accounts.
+- **Owner farm registration:** the farm location pin is a read-only placeholder.
+- **Owner QR check-in:** only a typed ticket code, no camera scan yet.
+- **Checkout:** the payment choice is not connected to a real payment.
+- **Admin settings:** password and activity note fields need saving logic.
+
+---
+
 ## Table of Contents
 
 1. [Project Overview](#project-overview)

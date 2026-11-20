@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { farm } from '../data/ownerData.js';
+import { farm } from '../services/agriData.js';
 
 const menu = [
   { group: 'Farm', items: [

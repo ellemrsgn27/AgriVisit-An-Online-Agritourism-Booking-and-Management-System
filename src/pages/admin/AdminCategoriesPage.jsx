@@ -1,6 +1,6 @@
 import AdminLayout from '../../components/AdminLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { categories } from '../../data/adminData.js';
+import { categories } from '../../services/agriData.js';
 
 const columns = { gridTemplateColumns: '1.6fr 0.8fr 0.7fr 0.9fr' };
 

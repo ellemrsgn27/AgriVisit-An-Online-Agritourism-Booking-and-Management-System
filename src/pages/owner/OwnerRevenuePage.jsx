@@ -1,6 +1,6 @@
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { monthlyIncome, peso } from '../../data/ownerData.js';
+import { monthlyIncome, peso } from '../../services/agriData.js';
 
 const weekly = [
   { week: 'W1', height: 62 },

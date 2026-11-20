@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { bookings, peso } from '../../data/ownerData.js';
+import { bookings, peso } from '../../services/agriData.js';
 
 export default function OwnerQrCheckinPage() {
   const [code, setCode] = useState('');

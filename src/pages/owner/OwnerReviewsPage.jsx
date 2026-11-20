@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { reviews as initial } from '../../data/ownerData.js';
+import { reviews as initial } from '../../services/agriData.js';
 
 const tabs = [
   { key: 'all', label: 'All' },

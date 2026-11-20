@@ -1,6 +1,6 @@
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { farm, peso } from '../../data/ownerData.js';
+import { farm, peso } from '../../services/agriData.js';
 
 export default function OwnerExperiencesPage() {
   return (

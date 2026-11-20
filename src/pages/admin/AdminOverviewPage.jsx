@@ -1,6 +1,6 @@
 import AdminLayout from '../../components/AdminLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { metrics, bookingBars, activity, approvals, applicant } from '../../data/adminData.js';
+import { metrics, bookingBars, activity, approvals, applicant } from '../../services/agriData.js';
 
 export default function AdminOverviewPage() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import OwnerLayout from '../../components/OwnerLayout.jsx';
-import { bookings, peso } from '../../data/ownerData.js';
+import { bookings, peso } from '../../services/agriData.js';
 
 const tabs = [
   { key: 'all', label: 'All' },

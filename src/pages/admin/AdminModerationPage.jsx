@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AdminLayout from '../../components/AdminLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { moderation, users, categories } from '../../data/adminData.js';
+import { moderation, users, categories } from '../../services/agriData.js';
 
 export default function AdminModerationPage() {
   const [active, setActive] = useState(moderation[0].id);

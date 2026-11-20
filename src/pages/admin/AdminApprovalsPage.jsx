@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AdminLayout from '../../components/AdminLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { approvals, applicant } from '../../data/adminData.js';
+import { approvals, applicant } from '../../services/agriData.js';
 
 const columns = { gridTemplateColumns: '1.2fr 1fr 0.8fr 1fr' };
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { farm, bookings, reviews, peso } from '../../data/ownerData.js';
+import { farm, bookings, reviews, peso } from '../../services/agriData.js';
 
 const arrivals = [
   { time: '9:00 AM', name: 'Andrea Mendoza', guests: 3, status: 'confirmed' },

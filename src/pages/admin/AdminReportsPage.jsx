@@ -1,6 +1,6 @@
 import AdminLayout from '../../components/AdminLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { reportBars, topFarms, cancellations } from '../../data/adminData.js';
+import { reportBars, topFarms, cancellations } from '../../services/agriData.js';
 
 export default function AdminReportsPage() {
   return (

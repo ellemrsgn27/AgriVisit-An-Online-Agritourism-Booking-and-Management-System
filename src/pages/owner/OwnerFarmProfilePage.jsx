@@ -1,6 +1,6 @@
 import OwnerLayout from '../../components/OwnerLayout.jsx';
 import Icon from '../../components/Icon.jsx';
-import { farm, openingDays } from '../../data/ownerData.js';
+import { farm, openingDays } from '../../services/agriData.js';
 
 export default function OwnerFarmProfilePage() {
   return (
