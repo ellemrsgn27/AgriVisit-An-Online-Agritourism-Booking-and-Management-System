@@ -6,10 +6,10 @@
 
 > A web-based platform that connects local farms with tourists through interactive farm map, online experience booking, QR-coded e-tickets, and revenue dashboard — promoting local agriculture, accessible tourism, and efficient farm management.
 
-![HTML5](https://img.shields.io/badge/HTML5-Structure-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?style=flat-square&logo=css3&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-Structure-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-Styling-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Functionality-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Database](https://img.shields.io/badge/Database-To%20Be%20Specified-4479A1?style=flat-square)
+![Supabase](https://img.shields.io/badge/Supabase-To%20Be%20Specified-4479A1?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)
 
