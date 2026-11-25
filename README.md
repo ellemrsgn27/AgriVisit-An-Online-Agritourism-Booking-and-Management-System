@@ -14,16 +14,35 @@
 
 </div>
 
-![AgriVisit](AgriVisit.jpg)
+![AgriVisit](./src/public/AgriVisit.jpg)
 
 <br>
 
 ---
 
+## Getting Started (Local Development)
+
+Because `package.json`, `index.html`, and `vite.config.js` reside inside the `src/` directory, navigate into `src/` first before installing dependencies or running the dev server:
+
+```bash
+cd src
+npm install
+npm run dev
+```
+
+To build for production or preview the production build locally (also from inside `src/`):
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
 ## Setup: Connecting the Database (Supabase)
 
-1. Copy `.env.example` and rename the copy to `.env` in the project folder.
-2. Open `.env` and paste your own Supabase Project URL and anon (public) key after the `=` signs.
+1. Copy `.env.example` from the repository root and rename the copy to `.env` inside `src/` (`src/.env`, where Vite loads environment variables).
+2. Open `src/.env` and paste your own Supabase Project URL and anon (public) key after the `=` signs.
 3. Never commit `.env` to git. It is listed in `.gitignore` to keep your keys private.
 4. Until the database is connected, the app shows sample data from `src/services/agriData.js`.
 
