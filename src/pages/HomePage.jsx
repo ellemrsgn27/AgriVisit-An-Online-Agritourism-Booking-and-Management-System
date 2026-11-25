@@ -20,8 +20,8 @@ const EXPERIENCES = [
     name: 'Orchard walk & calamansi picking',
     meta: 'Lipa, Batangas · 2 hours',
     price: '₱650',
-    image: 'https://placehold.co/520x300/ceddbe/355e43?text=Orchard+walk',
-    alt: 'Calamansi orchard rows',
+    image: '/images/story/farm-growers.jpg',
+    alt: 'A grower guiding visitors through a citrus orchard',
   },
   {
     id: 'lunch',
@@ -31,8 +31,8 @@ const EXPERIENCES = [
     name: 'Farm-to-table breakfast',
     meta: 'Silang, Cavite · 90 minutes',
     price: '₱950',
-    image: 'https://placehold.co/520x300/d8e2c6/355e43?text=Lunch+table',
-    alt: 'A long lunch table in a garden',
+    image: '/images/story/farm-landscape.jpg',
+    alt: 'Green vegetable rows across a working farm',
   },
   {
     id: 'workshop',
@@ -42,8 +42,8 @@ const EXPERIENCES = [
     name: 'Grow a little, learn a lot',
     meta: 'San Pablo, Laguna · 90 minutes · take-home seedling',
     price: '₱450',
-    image: 'https://placehold.co/520x300/ceddbe/355e43?text=Workshop',
-    alt: 'Seedlings in trays',
+    image: '/images/story/farm-landscape.jpg',
+    alt: 'Farmers tending green crop rows',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <div className="page-shell">
+      <div className="page-shell home-page-shell">
         <section className="home-hero">
           <div className="home-hero__copy">
             <p className="eyebrow home-hero__eyebrow">Rooted in local. Made for you.</p>
@@ -98,13 +98,14 @@ export default function HomePage() {
             </div>
           </div>
           <div className="home-hero__media">
-            <img src="/AgriVisit.jpg" alt="A farm landscape with orchard rows" width="715" height="475" />
+            <img src="/images/story/farm-landscape.jpg" alt="A wide landscape of cultivated farm plots" width="715" height="475" />
             <div className="home-hero__label">
-              <p className="home-hero__label-kicker">Featured farm</p>
+              <p className="home-hero__label-kicker">FEATURED FARM</p>
               <p className="home-hero__label-name">Bukid &amp; Bloom</p>
               <p className="home-hero__label-place">
                 <Icon name="pin" /> San Pablo, Laguna
               </p>
+              <Link className="home-hero__label-link" to="/farm">View farm →</Link>
             </div>
           </div>
         </section>
@@ -121,7 +122,7 @@ export default function HomePage() {
                 id="home-location"
                 name="location"
                 type="text"
-                defaultValue="Batangas & nearby"
+                defaultValue="Any location"
               />
             </div>
           </div>
@@ -254,7 +255,7 @@ export default function HomePage() {
                   Your next slow Sunday is on the map.
                 </p>
                 <p className="home-map-callout__text">
-                  Explore 48 independent farms across Batangas, Cavite, and Laguna.
+                  Explore 48 independent farms.
                 </p>
               </div>
             </div>
@@ -268,8 +269,8 @@ export default function HomePage() {
         <section className="home-invite" aria-labelledby="home-invite-heading">
           <img
             className="home-invite__photo"
-            src="https://placehold.co/545x300/ceddbe/355e43?text=Your+farm"
-            alt="A farm field with rows of crops"
+            src="/images/story/farm-landscape.jpg"
+            alt="Green farm plots across a countryside landscape"
             width="545"
             height="300"
             loading="lazy"

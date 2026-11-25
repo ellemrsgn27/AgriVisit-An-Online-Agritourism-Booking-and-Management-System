@@ -8,52 +8,56 @@ export const experiences = [
     category: 'fruit-picking',
     categoryLabel: 'Fruit picking',
     farm: 'Hiraya Family Farm',
+    rating: 4.9,
     name: 'Orchard walk & calamansi picking',
     duration: '2 hours',
     place: 'Lipa, Batangas',
     price: 650,
     slots: 8,
-    photo: 'https://placehold.co/360x220/ceddbe/355e43?text=Picking',
-    alt: 'A visitor picking calamansi',
+    photo: '/images/story/farm-growers.jpg',
+    alt: 'A grower guiding visitors through a citrus orchard',
   },
   {
     id: 'garden-lunch',
     category: 'farm-to-table',
     categoryLabel: 'Farm-to-table',
     farm: 'Luntian Grove',
+    rating: 4.8,
     name: 'From garden to lunch table',
     duration: '3 hours',
     place: 'Silang, Cavite',
     price: 950,
     slots: 6,
-    photo: 'https://placehold.co/360x220/d8e2c6/355e43?text=Lunch',
-    alt: 'A farm lunch table',
+    photo: '/images/story/farm-landscape.jpg',
+    alt: 'Green vegetable rows across a working farm',
   },
   {
     id: 'seedling-workshop',
     category: 'workshops',
     categoryLabel: 'Workshops',
     farm: 'Bukid & Bloom',
+    rating: 4.9,
     name: 'Grow a little, learn a lot',
     duration: '2 hours',
     place: 'San Pablo, Laguna',
     price: 450,
     slots: 10,
-    photo: 'https://placehold.co/360x220/ceddbe/355e43?text=Seedlings',
-    alt: 'Seedling workshop',
+    photo: '/images/story/farm-landscape.jpg',
+    alt: 'Farmers tending green crop rows',
   },
   {
     id: 'walking-tour',
     category: 'farm-tours',
     categoryLabel: 'Farm tours',
     farm: 'Sinta Hills Farm',
+    rating: 4.7,
     name: 'A walk through the working farm',
     duration: '90 minutes',
     place: 'Cuenca, Batangas',
     price: 350,
     slots: 12,
-    photo: 'https://placehold.co/360x220/d8e2c6/355e43?text=Tour',
-    alt: 'A walking farm tour',
+    photo: '/images/story/farm-growers.jpg',
+    alt: 'Visitors walking through a citrus orchard with a grower',
   },
 ];
 
@@ -65,6 +69,14 @@ const tabs = [
   { id: 'farm-tours', label: 'Farm tours' },
 ];
 
+const sortOptions = [
+  { value: 'recommended', label: 'Recommended' },
+  { value: 'rating', label: 'Highest rated' },
+  { value: 'price-asc', label: 'Price: Low to high' },
+  { value: 'price-desc', label: 'Price: High to low' },
+  { value: 'slots', label: 'Most available slots' },
+];
+
 function countFor(tabId) {
   return tabId === 'all'
     ? experiences.length
@@ -73,8 +85,17 @@ function countFor(tabId) {
 
 export default function ExperiencesPage() {
   const [activeTab, setActiveTab] = useState('all');
+  const [sortBy, setSortBy] = useState('recommended');
 
-  const visible = experiences.filter((item) => activeTab === 'all' || item.category === activeTab);
+  const visible = experiences
+    .filter((item) => activeTab === 'all' || item.category === activeTab)
+    .sort((a, b) => {
+      if (sortBy === 'rating') return b.rating - a.rating;
+      if (sortBy === 'price-asc') return a.price - b.price;
+      if (sortBy === 'price-desc') return b.price - a.price;
+      if (sortBy === 'slots') return b.slots - a.slots;
+      return 0;
+    });
 
   return (
     <Layout>
@@ -103,7 +124,7 @@ export default function ExperiencesPage() {
               </button>
             ))}
           </div>
-          <p className="experience-toolbar__sort">Sort: Recommended</p>
+          <label className="sort-control"><span>Sort by:</span><span className="sort-control__select-wrap"><select className="sort-control__select" value={sortBy} onChange={(event) => setSortBy(event.target.value)} aria-label="Sort experiences">{sortOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><span className="sort-control__chevron" aria-hidden="true">⌄</span></span></label>
         </div>
 
         <div className="experience-grid">

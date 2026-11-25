@@ -12,6 +12,10 @@ const tabs = [
 export default function OwnerReviewsPage() {
   const [items, setItems] = useState(initial);
   const [filter, setFilter] = useState('all');
+  const [reply, setReply] = useState('');
+  const [replySent, setReplySent] = useState(false);
+  const [replies, setReplies] = useState([]);
+  const [replyTo, setReplyTo] = useState(initial.find((review) => review.status === 'waiting')?.id ?? initial[0].id);
 
   const shown = items.filter((r) => {
     if (filter === 'all') return true;
@@ -33,12 +37,14 @@ export default function OwnerReviewsPage() {
           </p>
         </div>
         <div className="rating-summary">
-          <Icon name="star" className="rating__star" />
+          <span className="rating-summary__highlight"><span aria-hidden="true">★</span>
           <span className="rating-summary__score">4.9</span>
-          <span className="rating-summary__count">128 reviews</span>
+          </span><span className="rating-summary__count">128 reviews</span>
         </div>
       </div>
 
+      <div className="owner-reviews-workspace">
+      <div className="owner-review-feed">
       <div className="booking-tabs" role="tablist" aria-label="Review filters">
         {tabs.map((t) => {
           const count = items.filter((r) => {
@@ -80,13 +86,38 @@ export default function OwnerReviewsPage() {
               {r.status === 'published' ? (
                 <span className="booking-status booking-status--valid">Published</span>
               ) : (
-                <button className="link-button" type="button" onClick={() => publish(r.id)}>
-                  Awaiting moderation &middot; publish
+                <button className="review-publish-button" type="button" onClick={() => publish(r.id)}>
+                  Publish review
                 </button>
               )}
             </div>
           </article>
         ))}
+      </div>
+      </div>
+      <aside className="owner-review-sidebar">
+        <section className="console-card rating-breakdown-card">
+          <h2 className="console-card__title">Rating breakdown</h2>
+          {[5, 4, 3, 2, 1].map((stars) => {
+            const count = items.filter((review) => Math.round(review.rating) === stars).length;
+            const percent = items.length ? (count / items.length) * 100 : 0;
+            return <div className="rating-breakdown-row" key={stars}><span>{stars} star</span><div className="rating-breakdown-track"><span style={{ width: `${percent}%` }} /></div><strong>{count}</strong></div>;
+          })}
+          <p className="form-hint">Based on reviews currently loaded in your dashboard.</p>
+        </section>
+        <form className="console-card owner-reply-composer" onSubmit={(event) => { event.preventDefault(); if (reply.trim()) { setReplies((list) => [{ id: Date.now(), reviewId: replyTo, text: reply.trim() }, ...list]); setReplySent(true); setReply(''); } }}>
+          <h2 className="console-card__title">Reply to guest</h2>
+          <label className="form-field__label" htmlFor="reply-review">Choose a review</label>
+          <select className="owner-reply-composer__select" id="reply-review" value={replyTo} onChange={(event) => { setReplyTo(Number(event.target.value)); setReplySent(false); }}>
+            {items.map((review) => <option key={review.id} value={review.id}>{review.name} · {review.experience}</option>)}
+          </select>
+          <label className="form-field__label" htmlFor="guest-reply">Your reply</label>
+          <textarea id="guest-reply" rows="5" value={reply} onChange={(event) => { setReply(event.target.value); setReplySent(false); }} placeholder="Thank your guest or share a helpful follow-up…" />
+          <button className="button button--primary" type="submit" disabled={!reply.trim()}>Send reply</button>
+          {replySent && <p className="owner-action-notice" role="status">Reply saved for the selected guest.</p>}
+          {replies.filter((item) => item.reviewId === replyTo).map((item) => <p className="owner-reply-saved" key={item.id}>{item.text}</p>)}
+        </form>
+      </aside>
       </div>
     </OwnerLayout>
   );

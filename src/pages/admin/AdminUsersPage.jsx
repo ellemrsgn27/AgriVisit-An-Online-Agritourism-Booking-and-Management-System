@@ -16,7 +16,7 @@ export default function AdminUsersPage() {
           </p>
         </div>
         <div className="admin-actions">
-          <button className="admin-button admin-button--primary" type="button">
+          <button className="admin-button" type="button">
             <Icon name="user-plus" />
             Add user
           </button>

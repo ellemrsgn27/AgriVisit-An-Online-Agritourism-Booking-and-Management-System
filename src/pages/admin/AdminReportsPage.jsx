@@ -31,15 +31,6 @@ export default function AdminReportsPage() {
           </select>
         </div>
         <div className="admin-field">
-          <label htmlFor="rp-region">Region</label>
-          <select id="rp-region" defaultValue="all">
-            <option value="all">All regions</option>
-            <option value="batangas">Batangas</option>
-            <option value="cavite">Cavite</option>
-            <option value="laguna">Laguna</option>
-          </select>
-        </div>
-        <div className="admin-field">
           <label htmlFor="rp-category">Category</label>
           <select id="rp-category" defaultValue="all">
             <option value="all">All categories</option>

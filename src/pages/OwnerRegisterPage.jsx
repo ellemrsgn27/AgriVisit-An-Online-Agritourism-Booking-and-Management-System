@@ -26,7 +26,6 @@ export default function OwnerRegisterPage() {
               <p className="reg-story__text">
                 For the people who love the countryside, and the people who make it feel like home.
               </p>
-              <div className="reg-story__places">Batangas · Cavite · Laguna</div>
             </div>
           </aside>
 
@@ -91,22 +90,11 @@ export default function OwnerRegisterPage() {
               <div className="reg-row">
                 <div className="reg-field">
                   <label htmlFor="farm-city">City / municipality</label>
-                  <select id="farm-city" required defaultValue="">
-                    <option value="" disabled>
-                      Select municipality
-                    </option>
-                  </select>
+                  <input id="farm-city" type="text" placeholder="City or municipality" required />
                 </div>
                 <div className="reg-field">
                   <label htmlFor="farm-province">Province</label>
-                  <select id="farm-province" required defaultValue="">
-                    <option value="" disabled>
-                      Select province
-                    </option>
-                    <option>Batangas</option>
-                    <option>Cavite</option>
-                    <option>Laguna</option>
-                  </select>
+                  <input id="farm-province" type="text" placeholder="Province" required />
                 </div>
               </div>
               <div className="reg-field">

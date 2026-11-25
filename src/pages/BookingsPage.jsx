@@ -1,117 +1,128 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { QRCodeSVG } from 'qrcode.react';
 import Layout from '../components/Layout.jsx';
 
 const initialBookings = [
-  {
-    id: 'AGV-261114-084',
-    status: 'upcoming',
-    label: 'Confirmed',
-    statusClass: 'confirmed',
-    farm: 'Hiraya Family Farm',
-    name: 'Orchard walk & calamansi picking',
-    detail: 'Sat, 14 Nov 2026 · 9:00–11:00 AM · 3 adults',
-    price: '₱2,050 paid in full',
-  },
-  {
-    id: 'AGV-261121-092',
-    status: 'upcoming',
-    label: 'Pending host confirmation',
-    statusClass: 'pending',
-    farm: 'Luntian Grove',
-    name: 'From garden to lunch table',
-    detail: 'Sat, 21 Nov · 11:00 AM–2:00 PM · 2 adults',
-    price: '₱2,000 paid · refunded if declined',
-  },
-  {
-    id: 'AGV-261024-055',
-    status: 'past',
-    label: 'Completed · Checked in',
-    statusClass: 'completed',
-    farm: 'Bukid & Bloom',
-    name: 'Grow a little, learn a lot',
-    detail: '24 Oct 2026 · 2 adults',
-    price: '₱1,000',
-  },
-  {
-    id: 'AGV-261108-069',
-    status: 'cancelled',
-    label: 'Cancelled',
-    statusClass: 'cancelled',
-    farm: 'Sinta Hills Farm',
-    name: 'Working farm tour',
-    detail: '8 Nov 2026 · 1 adult',
-    price: '₱450 fully refunded',
-  },
+  { id: 'AGV-261114-084', status: 'upcoming', label: 'Confirmed', statusClass: 'confirmed', farm: 'Hiraya Family Farm', name: 'Orchard walk & calamansi picking', detail: 'Sat, 14 Nov 2026 · 9:00–11:00 AM · 3 adults', price: '₱2,050 paid in full · GCash', guests: 3, total: 2050, paymentMethod: 'GCash', paymentMethodValue: 'gcash', photo: '/images/story/farm-growers.jpg', confirmed: true },
+  { id: 'AGV-261121-092', status: 'upcoming', label: 'Pending host confirmation', statusClass: 'pending', farm: 'Luntian Grove', name: 'From garden to lunch table', detail: 'Sat, 21 Nov · 11:00 AM–2:00 PM · 2 adults', price: '₱2,000 paid · refunded if declined', guests: 2, total: 2000, paymentMethod: 'GCash', photo: '/images/story/farm-landscape.jpg' },
+  { id: 'AGV-261024-055', status: 'past', label: 'Completed · Checked in', statusClass: 'completed', farm: 'Bukid & Bloom', name: 'Grow a little, learn a lot', detail: '24 Oct 2026 · 2 adults', price: '₱1,000', guests: 2, total: 1000, photo: '/images/story/farm-landscape.jpg' },
+  { id: 'AGV-261108-069', status: 'cancelled', label: 'Cancelled', statusClass: 'cancelled', farm: 'Sinta Hills Farm', name: 'Working farm tour', detail: '8 Nov 2026 · 1 adult', price: '₱450 fully refunded', guests: 1, total: 450, photo: '/images/story/farm-growers.jpg' },
 ];
 
 const tabs = [
-  { id: 'all', label: 'All bookings' },
-  { id: 'upcoming', label: 'Upcoming' },
-  { id: 'past', label: 'Past visits' },
-  { id: 'cancelled', label: 'Cancelled' },
+  { id: 'all', label: 'All bookings' }, { id: 'upcoming', label: 'Upcoming' },
+  { id: 'past', label: 'Past visits' }, { id: 'cancelled', label: 'Cancelled' },
 ];
 
-export default function BookingsPage() {
-  const [bookings, setBookings] = useState(initialBookings);
-  const [tab, setTab] = useState('all');
+function ticketPayload(booking) {
+  return JSON.stringify({
+    bookingId: booking.id,
+    guests: booking.guests ?? 3,
+    paymentMethod: booking.paymentMethod ?? 'GCash',
+    total: booking.total ?? 2050,
+  });
+}
 
-  const visible = bookings.filter((b) => tab === 'all' || b.status === tab);
+export default function BookingsPage() {
+  const location = useLocation();
+  const checkoutBooking = location.state?.confirmedBooking;
+  const [bookings, setBookings] = useState(() => initialBookings.map((booking) => {
+    if (booking.id !== checkoutBooking?.id) return booking;
+    const updated = { ...booking, ...checkoutBooking };
+    const paymentState = updated.paymentMethodValue === 'cash' ? 'due at farm' : 'paid in full';
+    return {
+      ...updated,
+      detail: `Sat, 14 Nov 2026 · 9:00–11:00 AM · ${updated.guests} adults`,
+      price: `₱${updated.total.toLocaleString('en-PH')} ${paymentState} · ${updated.paymentMethod}`,
+      confirmed: true,
+    };
+  }));
+  const [tab, setTab] = useState('all');
+  const [selectedId, setSelectedId] = useState('AGV-261114-084');
+  const visible = bookings.filter((booking) => tab === 'all' || booking.status === tab);
+  const selected = visible.find((booking) => booking.id === selectedId) || visible[0];
+  const upcomingCount = bookings.filter((booking) => booking.status === 'upcoming').length;
+  const completedCount = bookings.filter((booking) => booking.statusClass === 'completed').length;
 
   function cancel(id) {
-    setBookings((list) =>
-      list.map((b) => (b.id === id ? { ...b, status: 'cancelled', label: 'Cancelled', statusClass: 'cancelled' } : b)),
-    );
+    setBookings((list) => list.map((booking) => booking.id === id
+      ? { ...booking, status: 'cancelled', label: 'Cancelled', statusClass: 'cancelled', confirmed: false }
+      : booking));
   }
 
   return (
     <Layout>
-      <div className="page-shell">
-        <section className="page-introduction page-introduction--split">
+      <div className="page-shell bookings-page">
+        <section className="page-introduction page-introduction--split bookings-page__header">
           <div className="page-introduction__copy">
             <h1 className="page-introduction__heading">Your next good day is booked.</h1>
             <p className="page-introduction__description">All your farm days, tickets, and little memories in one place.</p>
           </div>
+          <span className="bookings-summary-badge">{upcomingCount} upcoming · {completedCount} completed</span>
         </section>
 
         <div className="booking-tabs" role="tablist" aria-label="Booking status">
-          {tabs.map((t) => {
-            const count = t.id === 'all' ? bookings.length : bookings.filter((b) => b.status === t.id).length;
-            return (
-              <button
-                key={t.id}
-                type="button"
-                role="tab"
-                aria-selected={tab === t.id}
-                className={`booking-tabs__tab${tab === t.id ? ' is-active' : ''}`}
-                onClick={() => setTab(t.id)}
-              >
-                {t.label} <span className="booking-tabs__count">{count}</span>
-              </button>
-            );
+          {tabs.map((item) => {
+            const count = item.id === 'all' ? bookings.length : bookings.filter((booking) => booking.status === item.id).length;
+            return <button key={item.id} type="button" role="tab" aria-selected={tab === item.id} className={`booking-tabs__tab${tab === item.id ? ' is-active' : ''}`} onClick={() => setTab(item.id)}>{item.label} <span className="booking-tabs__count">{count}</span></button>;
           })}
         </div>
 
-        <div className="booking-list" id="booking-list">
-          {visible.length === 0 && <p className="booking-list__empty">No bookings in this tab yet.</p>}
-          {visible.map((b) => (
-            <article className="booking-entry" key={b.id} data-status={b.status}>
-              <div className="booking-entry__header">
-                <div className="booking-entry__summary">
-                  <p className="booking-entry__tags">
-                    <span className={`booking-status booking-status--${b.statusClass}`}>{b.label}</span>
-                    <span className="booking-card__reference">{b.id}</span>
-                  </p>
-                  <h3 className="booking-entry__title">{b.farm} · {b.name}</h3>
-                  <p className="booking-entry__meta">{b.detail} · {b.price}</p>
-                  {b.status === 'upcoming' && (
-                    <button className="link-button link-button--danger" type="button" onClick={() => cancel(b.id)}>
-                      Cancel booking
-                    </button>
-                  )}
-                </div>
+        <div className="bookings-master-detail">
+          <section className="bookings-list-column" aria-label="Bookings list">
+            {visible.length === 0 && <p className="booking-list__empty">No bookings in this tab yet.</p>}
+            {visible.map((booking) => <article key={booking.id} className={`booking-list-card${selected?.id === booking.id ? ' is-selected' : ''}`}>
+              <button className="booking-list-card__select" type="button" onClick={() => setSelectedId(booking.id)} aria-pressed={selected?.id === booking.id}>
+                <img className="booking-list-card__photo" src={booking.photo} alt="" />
+                <span className="booking-list-card__content">
+                  <span className="booking-list-card__top"><span className={`booking-status booking-status--${booking.statusClass}`}>{booking.label}</span><span className="booking-list-card__id">{booking.id}</span></span>
+                  <strong className="booking-list-card__title">{booking.farm} · {booking.name}</strong>
+                  <span className="booking-list-card__summary">{booking.detail}</span>
+                  <span className="booking-list-card__payment">{booking.price}</span>
+                </span>
+              </button>
+              <div className="booking-list-card__actions">
+                {booking.confirmed && <button type="button" className="booking-card-action" onClick={() => setSelectedId(booking.id)}>View pass</button>}
+                {booking.statusClass === 'pending' && <button type="button" className="booking-card-action booking-card-action--danger" onClick={() => cancel(booking.id)}>Cancel booking</button>}
+                {booking.statusClass === 'completed' && <button type="button" className="booking-card-action" onClick={() => setSelectedId(booking.id)}>Leave a review</button>}
+                {booking.statusClass === 'cancelled' && <Link className="booking-card-action" to="/farm">Book again</Link>}
               </div>
-            </article>
-          ))}
+            </article>)}
+          </section>
+
+          {selected && <aside className="booking-inspector" aria-live="polite">
+            {selected.confirmed ? <>
+              <p className="booking-inspector__eyebrow">Your farm day pass</p>
+              <h2 className="booking-inspector__title">{selected.farm}</h2>
+              <p className="booking-inspector__experience">{selected.name}</p>
+              <QRCodeSVG className="booking-inspector__qr" value={ticketPayload(selected)} size={190} level="M" includeMargin aria-label={`QR ticket for ${selected.id}`} />
+              <p className="booking-pass__reference">{selected.id}</p>
+              <p className="booking-inspector__group">{selected.guests ?? 3} adults · {selected.paymentMethod ?? 'GCash'} · ₱{(selected.total ?? 2050).toLocaleString('en-PH')}</p>
+              <span className="booking-pass__status">Valid · Not checked in</span>
+              <p className="booking-entry__arrival">Arrive by 8:45 AM at the main gate. Wear closed shoes and bring a hat and water. One QR ticket admits your full group of {selected.guests ?? 3}.</p>
+              <div className="booking-inspector__quick-links">
+                <a href={`data:text/calendar;charset=utf-8,${encodeURIComponent('BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Hiraya Family Farm · Orchard walk & calamansi picking\nDTSTART:20261114T010000Z\nDTEND:20261114T030000Z\nEND:VEVENT\nEND:VCALENDAR')}`} download="hiraya-farm-day.ics">Add to calendar</a>
+                <a href="mailto:maya.santos@hirayafarm.example?subject=Booking%20AGV-261114-084">Message host</a>
+                <button type="button" className="booking-card-action booking-card-action--danger" onClick={() => cancel(selected.id)}>Cancel booking</button>
+              </div>
+              <button className="booking-pass__download" type="button" onClick={() => window.print()}>Download e-ticket</button>
+            </> : <>
+              <p className="booking-inspector__eyebrow">Booking details</p>
+              <span className={`booking-status booking-status--${selected.statusClass}`}>{selected.label}</span>
+              <h2 className="booking-inspector__title">{selected.farm}</h2>
+              <p className="booking-inspector__experience">{selected.name}</p>
+              <p className="booking-inspector__id">{selected.id}</p>
+              <dl className="booking-inspector__breakdown">
+                <div><dt>Visit</dt><dd>{selected.detail}</dd></div>
+                <div><dt>Guests</dt><dd>{selected.guests} adults</dd></div>
+                <div><dt>Payment</dt><dd>{selected.price}</dd></div>
+              </dl>
+              {selected.statusClass === 'pending' && <div className="booking-inspector__next-step"><strong>Pending host confirmation</strong><p>Your QR ticket will be issued once the host confirms.</p><p>Refunded if the host declines.</p></div>}
+              {selected.statusClass === 'completed' && <div className="booking-inspector__next-step"><strong>Visit completed</strong><p>Share a note about your farm day.</p><button className="booking-card-action" type="button">Write a review</button></div>}
+              {selected.statusClass === 'cancelled' && <div className="booking-inspector__next-step"><strong>Refund confirmed</strong><p>{selected.price}</p><Link className="booking-card-action" to="/farm">Book again</Link></div>}
+            </>}
+          </aside>}
         </div>
       </div>
     </Layout>

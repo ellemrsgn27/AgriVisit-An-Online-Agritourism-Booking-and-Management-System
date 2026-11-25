@@ -13,12 +13,12 @@ export const farm = {
 };
 
 export const bookings = [
-  { ref: 'AGV-261121-092', name: 'Paolo Reyes', date: 'Sat, 21 Nov', time: '2:00 PM', guests: 5, experience: 'Orchard walk', total: 3250, status: 'pending' },
-  { ref: 'AGV-261122-095', name: 'Lena Cruz', date: 'Sun, 22 Nov', time: '7:30 AM', guests: 2, experience: 'Farm breakfast', total: 840, status: 'pending' },
-  { ref: 'AGV-261114-084', name: 'Andrea Mendoza', date: 'Sat, 14 Nov', time: '9:00 AM', guests: 3, experience: 'Orchard walk', total: 2050, status: 'confirmed' },
-  { ref: 'AGV-261114-086', name: 'Jomar Dela Cruz', date: 'Sat, 14 Nov', time: '9:00 AM', guests: 4, experience: 'Orchard walk', total: 2700, status: 'confirmed' },
-  { ref: 'AGV-261114-081', name: 'Rica Villanueva', date: 'Sat, 14 Nov', time: '11:00 AM', guests: 2, experience: 'Herb workshop', total: 1400, status: 'confirmed' },
-  { ref: 'AGV-261024-055', name: 'Anna Lim', date: 'Sat, 24 Oct', time: '9:00 AM', guests: 2, experience: 'Orchard walk', total: 1400, status: 'completed' },
+  { ref: 'AGV-261121-092', name: 'Paolo Reyes', email: 'paolo.reyes@example.com', phone: '+63 917 555 0192', date: 'Sat, 21 Nov', time: '2:00 PM', guests: 5, experience: 'Orchard walk', total: 3250, status: 'pending', note: 'One guest has a citrus allergy. Please confirm the pickup point at the main gate.', hold: 'Held until host confirmation' },
+  { ref: 'AGV-261122-095', name: 'Lena Cruz', email: 'lena.cruz@example.com', phone: '+63 917 555 0195', date: 'Sun, 22 Nov', time: '7:30 AM', guests: 2, experience: 'Farm breakfast', total: 840, status: 'pending', note: 'Vegetarian breakfast requested.', hold: 'Held until host confirmation' },
+  { ref: 'AGV-261114-084', name: 'Andrea Mendoza', email: 'andrea.mendoza@example.com', phone: '+63 917 555 0184', date: 'Sat, 14 Nov', time: '9:00 AM', guests: 3, experience: 'Orchard walk', total: 2050, status: 'confirmed', note: 'Family group; arriving 15 minutes early.', hold: 'Confirmed · slots reserved' },
+  { ref: 'AGV-261114-086', name: 'Jomar Dela Cruz', email: 'jomar.delacruz@example.com', phone: '+63 917 555 0186', date: 'Sat, 14 Nov', time: '9:00 AM', guests: 4, experience: 'Orchard walk', total: 2700, status: 'confirmed', note: 'No special requests.', hold: 'Confirmed · slots reserved' },
+  { ref: 'AGV-261114-081', name: 'Rica Villanueva', email: 'rica.villanueva@example.com', phone: '+63 917 555 0181', date: 'Sat, 14 Nov', time: '11:00 AM', guests: 2, experience: 'Herb workshop', total: 1400, status: 'confirmed', note: 'Will meet the host at the entrance.', hold: 'Confirmed · slots reserved' },
+  { ref: 'AGV-261024-055', name: 'Anna Lim', email: 'anna.lim@example.com', phone: '+63 917 555 0155', date: 'Sat, 24 Oct', time: '9:00 AM', guests: 2, experience: 'Orchard walk', total: 1400, status: 'completed', note: 'Visit completed.', hold: 'Released · visit completed' },
 ];
 
 export const reviews = [

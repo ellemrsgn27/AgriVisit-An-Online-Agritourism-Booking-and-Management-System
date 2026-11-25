@@ -1,15 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import Icon from './Icon.jsx';
+import { LayoutDashboard, ClipboardCheck, Users, Tags, ShieldCheck, BarChart3, Settings } from 'lucide-react';
 import './AdminLayout.css';
 
 const menu = [
-  { to: '/admin/overview', label: 'Overview', icon: 'dashboard' },
-  { to: '/admin/approvals', label: 'Farm approvals', icon: 'tractor' },
-  { to: '/admin/users', label: 'Users & roles', icon: 'users' },
-  { to: '/admin/categories', label: 'Categories', icon: 'tags' },
-  { to: '/admin/moderation', label: 'Reviews & moderation', icon: 'shield' },
-  { to: '/admin/reports', label: 'System reports', icon: 'chart' },
-  { to: '/admin/settings', label: 'Settings', icon: 'settings' },
+  { to: '/admin/overview', label: 'Overview', icon: LayoutDashboard },
+  { to: '/admin/approvals', label: 'Farm approvals', icon: ClipboardCheck },
+  { to: '/admin/users', label: 'Users & roles', icon: Users },
+  { to: '/admin/categories', label: 'Categories', icon: Tags },
+  { to: '/admin/moderation', label: 'Reviews & moderation', icon: ShieldCheck },
+  { to: '/admin/reports', label: 'System reports', icon: BarChart3 },
+  { to: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
 export default function AdminLayout({ title, crumb, children }) {
@@ -36,7 +37,7 @@ export default function AdminLayout({ title, crumb, children }) {
                 `admin-nav__link${isActive ? ' is-active' : ''}`
               }
             >
-              <Icon name={item.icon} className="admin-nav__icon" />
+              <item.icon className="admin-nav__icon" size={18} strokeWidth={1.8} aria-hidden="true" />
               <span>{item.label}</span>
             </NavLink>
           ))}

@@ -1,6 +1,17 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { farm } from '../services/agriData.js';
+import { LayoutDashboard, Sprout, Compass, CalendarCheck, QrCode, Star, BarChart3 } from 'lucide-react';
+
+const navIcons = {
+  Overview: LayoutDashboard,
+  'Farm profile': Sprout,
+  Experiences: Compass,
+  Bookings: CalendarCheck,
+  'QR check-in': QrCode,
+  Reviews: Star,
+  'Revenue dashboard': BarChart3,
+};
 
 const menu = [
   { group: 'Farm', items: [
@@ -43,6 +54,7 @@ export default function OwnerLayout({ title, children }) {
                     `console-navigation__link${isActive ? ' is-active' : ''}`
                   }
                 >
+                  {(() => { const NavIcon = navIcons[item.label]; return <NavIcon className="owner-nav-icon" size={18} strokeWidth={1.8} aria-hidden="true" />; })()}
                   {item.label}
                 </NavLink>
               ))}

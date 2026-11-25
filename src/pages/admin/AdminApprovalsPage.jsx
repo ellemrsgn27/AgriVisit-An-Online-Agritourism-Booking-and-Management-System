@@ -62,16 +62,6 @@ export default function AdminApprovalsPage() {
           </select>
         </div>
         <div className="admin-field">
-          <label htmlFor="ap-region">Region</label>
-          <select id="ap-region" defaultValue="all">
-            <option value="all">All regions</option>
-            <option value="batangas">Batangas</option>
-            <option value="cavite">Cavite</option>
-            <option value="laguna">Laguna</option>
-            <option value="quezon">Quezon</option>
-          </select>
-        </div>
-        <div className="admin-field">
           <label htmlFor="ap-date">Submitted from</label>
           <input id="ap-date" type="date" />
         </div>
@@ -142,7 +132,7 @@ export default function AdminApprovalsPage() {
               Approve farm
             </button>
             <button className="admin-button" type="button">Request changes</button>
-            <button className="admin-button" type="button" style={{ color: '#a84c3e' }}>
+            <button className="admin-button admin-button--destructive" type="button">
               Reject registration
             </button>
           </div>

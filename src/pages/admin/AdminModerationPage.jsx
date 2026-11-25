@@ -130,7 +130,7 @@ export default function AdminModerationPage() {
           </div>
 
           <div className="admin-actions">
-            <button className="admin-button admin-button--primary" type="button">Hide review</button>
+            <button className="admin-button admin-button--destructive" type="button">Hide review</button>
             <button className="admin-button" type="button">Publish review</button>
           </div>
 

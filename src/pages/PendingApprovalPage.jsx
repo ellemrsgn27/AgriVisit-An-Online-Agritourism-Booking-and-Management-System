@@ -19,7 +19,6 @@ export default function PendingApprovalPage() {
               <p className="reg-story__text">
                 For the people who love the countryside, and the people who make it feel like home.
               </p>
-              <div className="reg-story__places">Batangas · Cavite · Laguna</div>
             </div>
           </aside>
 

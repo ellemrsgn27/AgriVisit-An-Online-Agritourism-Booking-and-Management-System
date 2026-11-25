@@ -50,7 +50,7 @@ export default function FarmPage() {
         <section className="farm-hero">
           <img
             className="farm-hero__photo"
-            src="https://placehold.co/760x420/ceddbe/355e43?text=Hiraya+Family+Farm"
+            src="/images/story/farm-landscape.jpg"
             alt="Vegetable rows at Hiraya Family Farm"
             width="760"
             height="420"

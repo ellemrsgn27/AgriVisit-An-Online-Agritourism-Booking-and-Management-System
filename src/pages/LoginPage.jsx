@@ -20,11 +20,6 @@ export default function LoginPage() {
             <p className="auth-story__text">
               For the people who love the countryside, and the people who make it feel like home.
             </p>
-            <div className="auth-story__places">
-              <span>Batangas</span>
-              <span>Cavite</span>
-              <span>Laguna</span>
-            </div>
           </aside>
 
           <section className="auth-form-panel">

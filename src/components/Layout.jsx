@@ -76,7 +76,6 @@ export default function Layout({ children }) {
       <footer className="site-footer">
         <div className="site-footer__inner">
           <p>AgriVisit — booking and management for local farm experiences.</p>
-          <p className="site-footer__note">Batangas · Cavite · Laguna</p>
         </div>
       </footer>
     </>

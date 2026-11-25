@@ -194,3 +194,90 @@
     font-size: 30px;
   }
 }
+
+.admin-signin {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.admin-signin__top {
+  border-bottom-color: var(--color-border);
+}
+
+.admin-brand--light {
+  color: var(--color-brand);
+}
+
+.admin-signin__photo::after {
+  background: linear-gradient(180deg, rgba(23, 56, 40, 0.12), rgba(23, 56, 40, 0.08) 42%, rgba(12, 31, 21, 0.96));
+}
+
+.admin-signin__badge {
+  background-color: var(--color-stone-band);
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.admin-signin__eyebrow {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.admin-signin__story h1,
+.admin-signin__form h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+}
+
+.admin-signin__story h1 {
+  color: #ffffff;
+}
+
+.admin-signin__form .admin-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid rgba(217, 107, 39, 0.32);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-soft);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #8a3d10;
+}
+
+.admin-signin__form .admin-note {
+  color: var(--color-ink-muted);
+}
+
+.admin-signin .admin-callout {
+  background-color: var(--color-brand-soft);
+  color: var(--color-ink-soft);
+}
+
+.admin-signin .admin-callout svg {
+  color: var(--color-brand);
+}
+
+.admin-signin .admin-button--primary {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  font-weight: 800;
+  box-shadow: var(--shadow-cta);
+}
+
+.admin-signin .admin-button--primary:hover {
+  border-color: var(--color-accent-hover);
+  background-color: var(--color-accent-hover);
+}
+
+.admin-signin__footer {
+  color: var(--color-ink-muted);
+}
+
+.admin-signin__badge, .admin-signin__eyebrow { font-size: 12px; }
+.admin-signin__roots, .admin-signin__footer, .admin-signin__footer a { font-size: 14px; color: #2A352F; }
+.admin-signin .admin-field label { font-size: 14px; }
+.admin-signin .admin-field input { font-size: 15px; }

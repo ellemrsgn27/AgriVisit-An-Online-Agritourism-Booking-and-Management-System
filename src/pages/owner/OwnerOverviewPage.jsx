@@ -64,7 +64,7 @@ export default function OwnerOverviewPage() {
                 <span className="arrival-list__time">{a.time}</span>
                 <span className="arrival-list__name">{a.name}</span>
                 <span className="arrival-list__guests">{a.guests} guests</span>
-                <span className={`booking-status booking-status--${a.status === 'completed' ? 'completed' : 'valid'}`}>
+                <span className={`booking-status booking-status--${a.status === 'completed' ? 'checked-in' : a.status === 'pending' ? 'pending' : 'not-checked-in'}`}>
                   {statusLabel[a.status]}
                 </span>
               </li>

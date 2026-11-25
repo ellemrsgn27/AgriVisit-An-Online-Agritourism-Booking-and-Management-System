@@ -16,7 +16,7 @@ const FARMS = [
     slots: '8 slots',
     time: '9:00 AM',
     price: 650,
-    photo: 'https://placehold.co/180x151/ceddbe/355e43?text=Orchard',
+    photo: '/images/story/farm-growers.jpg',
   },
   {
     id: 'luntian',
@@ -30,7 +30,7 @@ const FARMS = [
     slots: '6 slots',
     time: '11:00 AM',
     price: 950,
-    photo: 'https://placehold.co/180x151/d8e2c6/355e43?text=Table',
+    photo: '/images/story/farm-landscape.jpg',
   },
   {
     id: 'bukid',
@@ -44,7 +44,7 @@ const FARMS = [
     slots: '10 slots',
     time: '10:00 AM',
     price: 450,
-    photo: 'https://placehold.co/180x151/ceddbe/355e43?text=Workshop',
+    photo: '/images/story/farm-landscape.jpg',
   },
   {
     id: 'sinta',
@@ -58,7 +58,7 @@ const FARMS = [
     slots: '12 slots',
     time: '2:00 PM',
     price: 350,
-    photo: 'https://placehold.co/180x151/d8e2c6/355e43?text=Tour',
+    photo: '/images/story/farm-growers.jpg',
   },
 ];
 
@@ -68,14 +68,22 @@ const MAP_PLACES = [
   { key: 'lipa', label: 'LIPA CITY' },
   { key: 'sanpablo', label: 'SAN PABLO' },
   { key: 'cuenca', label: 'CUENCA' },
-  { key: 'batangas', label: 'BATANGAS' },
+];
+
+const sortOptions = [
+  { value: 'recommended', label: 'Recommended' },
+  { value: 'rating', label: 'Highest rated' },
+  { value: 'price-asc', label: 'Price: Low to high' },
+  { value: 'price-desc', label: 'Price: High to low' },
+  { value: 'slots', label: 'Most available slots' },
 ];
 
 export default function DiscoveryPage() {
   const [selectedFarm, setSelectedFarm] = useState(FARMS[0]);
   const [filtersShown, setFiltersShown] = useState(true);
+  const [sortBy, setSortBy] = useState('recommended');
   const [form, setForm] = useState({
-    location: 'Batangas & nearby',
+    location: 'Any location',
     date: 'Sat, 14 November 2026',
     experience: 'all',
     guests: '3 adults',
@@ -84,6 +92,13 @@ export default function DiscoveryPage() {
   });
 
   const updateField = (field, value) => setForm((current) => ({ ...current, [field]: value }));
+  const sortedFarms = [...FARMS].sort((a, b) => {
+    if (sortBy === 'rating') return Number(b.rating) - Number(a.rating);
+    if (sortBy === 'price-asc') return a.price - b.price;
+    if (sortBy === 'price-desc') return b.price - a.price;
+    if (sortBy === 'slots') return Number.parseInt(b.slots, 10) - Number.parseInt(a.slots, 10);
+    return 0;
+  });
 
   return (
     <Layout>
@@ -195,13 +210,13 @@ export default function DiscoveryPage() {
               <Icon className="button__icon" name="sliders" />
               <span>{filtersShown ? 'Filters shown' : 'Show filters'}</span>
             </button>
-            <p className="filter-options__note">Within 50 km of Lipa</p>
+            <p className="filter-options__note">Search farms anywhere in the Philippines</p>
             <button
               className="link-button"
               type="button"
               onClick={() =>
                 setForm({
-                  location: 'Batangas & nearby',
+                  location: 'Any location',
                   date: 'Sat, 14 November 2026',
                   experience: 'all',
                   guests: '3 adults',
@@ -283,11 +298,11 @@ export default function DiscoveryPage() {
                 <h2 className="farm-results__count" id="results-heading">
                   {FARMS.length} farms for your Saturday
                 </h2>
-                <p className="farm-results__sort">Sort: Recommended</p>
+                <label className="sort-control"><span>Sort by:</span><span className="sort-control__select-wrap"><select className="sort-control__select" value={sortBy} onChange={(event) => setSortBy(event.target.value)} aria-label="Sort farms">{sortOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><span className="sort-control__chevron" aria-hidden="true">⌄</span></span></label>
               </div>
 
               <div className="farm-results__list">
-                {FARMS.map((farm) => (
+                {sortedFarms.map((farm) => (
                   <article
                     key={farm.id}
                     className={`farm-card${selectedFarm.id === farm.id ? ' is-selected' : ''}`}
@@ -390,10 +405,10 @@ export default function DiscoveryPage() {
                 <div className="selected-farm-preview">
                   <img
                     className="selected-farm-preview__photo"
-                    src="https://placehold.co/66x60/ceddbe/355e43?text=Farm"
+                    src={selectedFarm.photo}
                     alt=""
                     width="66"
-                    height="60"
+                    height="50"
                     loading="lazy"
                   />
                   <div className="selected-farm-preview__summary">

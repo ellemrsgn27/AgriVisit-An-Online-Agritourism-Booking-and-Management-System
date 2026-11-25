@@ -15,20 +15,10 @@ export default function OwnerFarmProfilePage() {
         </button>
       </div>
 
-      <form className="console-form" id="farm-profile-form" onSubmit={(e) => e.preventDefault()}>
+      <form className="console-form owner-profile-workspace" id="farm-profile-form" onSubmit={(e) => e.preventDefault()}>
+        <div className="owner-profile-main">
         <div className="console-card">
           <h2 className="console-card__title">About the farm</h2>
-          <div className="profile-photo-row">
-            <img src="/images/story/farm-growers.jpg" alt="Farm main photo" />
-            <div>
-              <button className="button button--ghost" type="button">
-                <Icon name="photo" className="button__icon" /> Replace main photo
-              </button>
-              <p className="form-hint">
-                JPG or PNG, at least 1600 x 900. The first photo becomes your search thumbnail.
-              </p>
-            </div>
-          </div>
           <div className="form-field">
             <label className="form-field__label" htmlFor="fp-name">Farm name</label>
             <div className="input">
@@ -70,7 +60,6 @@ export default function OwnerFarmProfilePage() {
             ))}
           </ul>
         </div>
-
         <div className="console-card">
           <h2 className="console-card__title">Verification</h2>
           <p className="console-card__text">
@@ -82,6 +71,25 @@ export default function OwnerFarmProfilePage() {
             <span className="doc-chip">Owner identification &middot; on file</span>
           </div>
         </div>
+        </div>
+
+        <aside className="owner-profile-side">
+          <section className="console-card">
+            <h2 className="console-card__title">Farm photos</h2>
+            <div className="farm-photo-gallery"><div className="farm-photo-preview"><img src="/images/story/farm-growers.jpg" alt="Farm main photo" /><span>Main photo</span></div><div className="farm-photo-preview"><img src="/images/story/farm-landscape.jpg" alt="Farm landscape" /></div></div>
+            <button className="button button--ghost" type="button"><Icon name="photo" className="button__icon" /> Replace main photo</button>
+            <p className="form-hint">JPG or PNG, at least 1600 x 900. The first photo becomes your search thumbnail.</p>
+          </section>
+          <section className="console-card">
+            <h2 className="console-card__title">Facilities &amp; features</h2>
+            <div className="feature-checklist"><label><input type="checkbox" defaultChecked /> Restroom available</label><label><input type="checkbox" defaultChecked /> Parking on site</label><label><input type="checkbox" /> Wheelchair accessible</label><label><input type="checkbox" defaultChecked /> Family friendly</label></div>
+          </section>
+          <section className="console-card">
+            <h2 className="console-card__title">Location map pin</h2>
+            <div className="farm-map-preview"><Icon name="pin" /><span>{farm.city}</span><small>{farm.pin}</small></div>
+            <p className="form-hint">Map pin preview for guests planning their visit.</p>
+          </section>
+        </aside>
       </form>
     </OwnerLayout>
   );

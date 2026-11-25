@@ -5,8 +5,8 @@
   --color-border-strong: #d4d9c7;
 
   --color-ink: #25372c;
-  --color-ink-muted: #727a70;
-  --color-ink-soft: #626e60;
+  --color-ink-muted: #4a554d;
+  --color-ink-soft: #2a352f;
 
   --color-brand: #355e43;
   --color-brand-hover: #2b4c36;
@@ -24,8 +24,10 @@
   --text-wordmark: 26px;
   --text-h3: 18px;
   --text-body: 14px;
-  --text-small: 13px;
-  --text-label: 12px;
+  --text-small: 15px;
+  --text-label: 14px;
+  --text-micro: 14px;
+  --text-tiny: 12px;
 
   --radius-md: 8px;
   --radius-lg: 10px;
@@ -34,14 +36,14 @@
 
   --space-2: 8px;
   --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
+  --space-4: 14px;
+  --space-6: 20px;
+  --space-8: 24px;
+  --space-12: 32px;
+  --space-16: 40px;
 
   --page-max-width: 1440px;
-  --page-gutter: 48px;
+  --page-gutter: 32px;
   --header-height: 88px;
 
   --shadow-card: 0 2px 10px rgba(36, 62, 38, 0.06);

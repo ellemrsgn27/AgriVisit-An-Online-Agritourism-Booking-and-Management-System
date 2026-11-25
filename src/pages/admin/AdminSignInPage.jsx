@@ -27,10 +27,6 @@ export default function AdminSignInPage() {
             <p className="admin-signin__eyebrow">Real farms. Real connections.</p>
             <h1>A growing community, well cared for.</h1>
             <p>For the people who help every farm and every visitor find their place.</p>
-            <p className="admin-signin__roots">
-              <Icon name="pin" />
-              Batangas &middot; Cavite &middot; Laguna
-            </p>
           </div>
         </aside>
 
