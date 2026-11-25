@@ -25,7 +25,6 @@ export default function OwnerOverviewPage() {
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Good morning, Maya.</h1>
-          <p className="console-heading__text">Two visits today. 14 guests expected at the gate.</p>
         </div>
         <Link className="button button--primary" to="/owner/qr-checkin">
           Open check-in <Icon name="scan" className="button__icon" />

@@ -5833,3 +5833,41 @@ button:not(.booking-status):not(.status-pill):not(.admin-pill), .link-button, a.
   opacity: 1;
   text-shadow: 0 1px 5px rgba(0,0,0,.75);
 }
+
+/* Auth & login panel unification */
+.auth-story .auth-story__eyebrow {
+  color: #F4A261;
+}
+
+.auth-story .auth-story__heading {
+  color: #FAF8F3;
+}
+
+.auth-story .auth-story__text {
+  color: #E6E0D4;
+}
+
+.auth-form-panel {
+  border-color: #D6CFC2;
+}
+
+.auth-form .form-field input {
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #D6CFC2;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.auth-form .form-field input:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(23, 56, 40, 0.12);
+  outline: none;
+}
+
+.auth-form-panel .button--primary {
+  font-weight: 600;
+}

@@ -15,9 +15,6 @@ export default function OwnerExperiencesPage() {
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Experiences</h1>
-          <p className="console-heading__text">
-            Set what you offer, when, and how many guests you can welcome.
-          </p>
         </div>
         <button className="button button--primary" type="button">Add an experience</button>
       </div>
@@ -67,9 +64,6 @@ export default function OwnerExperiencesPage() {
             </div>
           </div>
         </div>
-        <p className="form-hint">
-          When a session reaches capacity, AgriVisit closes it automatically so no booking is taken twice.
-        </p>
       </div>
       <section className="console-card upcoming-capacity-card">
         <p className="gate-panel__eyebrow">Upcoming session capacity</p>

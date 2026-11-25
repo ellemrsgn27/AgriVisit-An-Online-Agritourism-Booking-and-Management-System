@@ -102,9 +102,9 @@ export default function ExperiencesPage() {
       <div className="page-shell">
         <section className="page-introduction page-introduction--split">
           <div className="page-introduction__copy">
-            <h1 className="page-introduction__heading">Pick a thing to do with your hands.</h1>
+            <h1 className="page-introduction__heading">Farm experiences</h1>
             <p className="page-introduction__description">
-              Every experience is run by the family that works the land.
+              Book scheduled tours, harvests, workshops, and meals hosted by verified farms.
             </p>
           </div>
         </section>

@@ -10,10 +10,6 @@ export default function AdminUsersPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / Users &amp; roles</p>
-          <p>
-            Manage tourist, farm owner and administrator accounts. Role changes require a reason and are
-            recorded in the activity log.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button" type="button">
@@ -95,11 +91,6 @@ export default function AdminUsersPage() {
               </div>
             ))}
           </div>
-
-          <p className="admin-note">
-            Edit roles, suspend access or restore accounts. Administrative changes require a reason and are
-            recorded in the activity log.
-          </p>
         </div>
 
         <div className="admin-panel">
@@ -116,14 +107,6 @@ export default function AdminUsersPage() {
             </select>
           </div>
 
-          <div className="admin-callout">
-            <Icon name="info" />
-            <div>
-              Administrators can approve farms, moderate reviews and change platform settings. Elevated
-              access needs written approval from the platform lead.
-            </div>
-          </div>
-
           <div className="admin-field">
             <label htmlFor="us-reason">Reason for change</label>
             <textarea id="us-reason" rows="3" placeholder="Required for role and access changes" />
@@ -133,10 +116,6 @@ export default function AdminUsersPage() {
             <button className="admin-button admin-button--primary" type="button">Save role change</button>
             <button className="admin-button" type="button">Cancel</button>
           </div>
-
-          <p className="admin-note">
-            Role changes take effect immediately. The account receives an email with the new permissions.
-          </p>
         </div>
       </section>
 
@@ -159,14 +138,6 @@ export default function AdminUsersPage() {
           ))}
         </div>
       </section>
-
-      <div className="admin-callout">
-        <Icon name="info" />
-        <div>
-          Administrator access is limited to platform staff. Anyone who needs access requests it from an
-          existing administrator, and the grant is recorded.
-        </div>
-      </div>
     </AdminLayout>
   );
 }

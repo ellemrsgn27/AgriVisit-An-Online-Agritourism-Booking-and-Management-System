@@ -33,7 +33,7 @@ export default function OwnerBookingsPage() {
   return (
     <OwnerLayout title="Bookings">
       <div className="console-heading">
-        <div><h1 className="console-heading__title">Bookings</h1><p className="console-heading__text">Review requests, keep sessions full, and prepare for arrivals.</p></div>
+        <div><h1 className="console-heading__title">Bookings</h1></div>
         <span className="owner-bookings-summary">{rows.length} bookings</span>
       </div>
 

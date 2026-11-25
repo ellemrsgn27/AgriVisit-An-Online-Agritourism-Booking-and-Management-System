@@ -8,10 +8,6 @@ export default function AdminReportsPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / System reports</p>
-          <p>
-            Booking value, farm performance and cancellations across the platform. Reports follow the
-            selected period and exclude refunded bookings.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button admin-button--primary" type="button">
@@ -68,7 +64,6 @@ export default function AdminReportsPage() {
       <section className="admin-grid">
         <div className="admin-panel">
           <h2 className="admin-panel__title">Booking value by month</h2>
-          <p className="admin-note">Monthly gross booking value across all approved farms.</p>
           <div className="admin-bars">
             {reportBars.map((bar) => (
               <div key={bar.label} className="admin-bars__col">
@@ -104,7 +99,6 @@ export default function AdminReportsPage() {
       <section className="admin-grid">
         <div className="admin-panel">
           <h2 className="admin-panel__title">Cancellations and refunds</h2>
-          <p className="admin-note">Reasons given for cancelled requests in the selected period.</p>
 
           <div className="admin-table">
             <div className="admin-table__head" style={{ gridTemplateColumns: '1.6fr 0.5fr 0.5fr' }}>
@@ -120,31 +114,19 @@ export default function AdminReportsPage() {
               </div>
             ))}
           </div>
-
-          <p className="admin-note">
-            Refunds follow the farm cancellation policy. Cancelled bookings never count in booking value.
-          </p>
         </div>
 
         <div className="admin-panel">
           <h2 className="admin-panel__title">Report scope</h2>
           <span className="admin-pill admin-pill--valid">Figures verified</span>
           <p className="admin-note">
-            Reports cover approved farms with at least one confirmed booking in the period.
-          </p>
-          <p className="admin-note">
-            Data is refreshed nightly. Owner payouts are calculated from the same figures.
+            Approved farms with at least one confirmed booking in the selected period.
           </p>
 
           <button className="admin-button admin-button--primary" type="button">
             <Icon name="download" />
             Download monthly summary
           </button>
-
-          <p className="admin-note">
-            Generated 12 Nov 2026, 9:45 AM &middot; Farm, tourist and booking identifiers are hidden in shared
-            exports.
-          </p>
         </div>
       </section>
     </AdminLayout>

@@ -28,23 +28,21 @@ export default function OwnerQrCheckinPage() {
 
   return (
     <OwnerLayout title="QR check-in">
-      <div className="console-heading"><div><h1 className="console-heading__title">QR check-in</h1><p className="console-heading__text">Verify tickets and welcome today's guests at the gate.</p></div></div>
+      <div className="console-heading"><div><h1 className="console-heading__title">QR check-in</h1></div></div>
 
       <div className="gate-station">
         <section className="scanner-card gate-scanner">
-          <div><p className="gate-panel__eyebrow">Gate scanner</p><h2 className="console-card__title">Scan the QR code</h2></div>
+          <div><p className="gate-panel__eyebrow">Gate scanner</p><h2 className="console-card__title">Scan QR code</h2></div>
           <div className="scanner-card__viewport" aria-hidden="true"><span className="scanner-card__frame"></span><Icon name="scan" className="scanner-card__icon" /></div>
-          <p className="scanner-card__hint">Point the phone at the guest's pass. Keep it steady until the beep.</p>
           <button className="button button--ghost scanner-card__button" type="button">Open the camera</button>
         </section>
 
         <section className="console-card gate-ticket-station">
-          <div><p className="gate-panel__eyebrow">Gate verification</p><h2 className="console-card__title">Booking reference &amp; ticket preview</h2></div>
+          <div><p className="gate-panel__eyebrow">Gate verification</p><h2 className="console-card__title">Enter booking reference</h2></div>
           <form className="gate-lookup" onSubmit={lookup}>
             <div className="form-field"><label className="form-field__label" htmlFor="checkin-ref">Booking reference</label><div className="input"><input className="input__control" id="checkin-ref" type="text" placeholder="AGV-261114-084" value={code} onChange={(event) => setCode(event.target.value)} /></div></div>
             <button className="button button--primary" type="submit">Check this ticket</button>
           </form>
-          <p className="checkin-reference__hint">Enter the booking ID printed beneath the guest's QR code.</p>
           {note && !ticket && <p className="ticket-result__note" role="status">{note}</p>}
           {ticket && <div className="selected-ticket-preview">
             <div className="selected-ticket-preview__head"><div><p className="gate-panel__eyebrow">Selected ticket preview</p><h3>{ticket.name}</h3><p className="ticket-result__ref">{ticket.ref}</p></div><span className={`booking-status booking-status--${ticket.status === 'completed' ? 'checked-in' : ticket.status === 'pending' ? 'pending' : 'not-checked-in'}`}>{ticket.status === 'completed' ? 'Checked in' : ticket.status === 'pending' ? 'Pending' : 'Valid · Not checked in'}</span></div>

@@ -1,102 +1,136 @@
-/* Shared styles for the sign-up and farm pages (match the Figma screens) */
+/* Shared styles for the sign-up and pending-approval pages */
 .reg-shell {
   max-width: var(--page-max-width);
   margin: 0 auto;
-  padding: var(--space-8) var(--page-gutter) var(--space-12);
+  padding: 24px var(--page-gutter) 40px;
 }
 
 .reg-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 120px;
+  gap: var(--space-8);
   align-items: start;
 }
 
 .reg-story {
-  position: relative;
+  position: sticky;
+  top: 24px;
+  height: 560px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 1055px;
-  padding: var(--space-8);
-  border-radius: 20px;
-  background-image: linear-gradient(180deg, rgba(37, 55, 44, 0) 40%, rgba(37, 55, 44, 0.75) 100%),
-    linear-gradient(160deg, #8fa58a 0%, #5e7f5a 50%, #355e43 100%);
-  color: #f3f6ee;
+  padding: 32px;
+  border-radius: 16px;
+  background-color: #111d17;
+  color: #faf8f3;
   overflow: hidden;
 }
 
+.reg-story::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 29, 23, 0.95) 0%,
+    rgba(17, 29, 23, 0.65) 50%,
+    rgba(17, 29, 23, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+.reg-story__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .reg-badge {
+  position: relative;
+  z-index: 1;
   align-self: flex-start;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(250, 248, 243, 0.94);
   color: var(--color-brand);
-  font-size: var(--text-small);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .reg-story__body {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 10px;
 }
 
 .reg-story__eyebrow {
-  font-size: var(--text-label);
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #e4eedf;
+  letter-spacing: 0.1em;
+  color: #f4a261;
 }
 
 .reg-story__heading {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 1.15;
-  margin: var(--space-3) 0;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #faf8f3;
+  margin: 2px 0;
 }
 
 .reg-story__text {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.55;
   max-width: 440px;
-  color: #e4eedf;
+  color: #e6e0d4;
 }
 
 .reg-story__places {
   margin-top: var(--space-3);
   padding-top: var(--space-4);
   border-top: 1px solid rgba(243, 246, 238, 0.35);
-  font-size: var(--text-label);
+  font-size: 14px;
 }
 
 .reg-panel {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding-top: var(--space-6);
-  max-width: 560px;
+  width: 100%;
+  padding: 32px;
+  border: 1px solid #d6cfc2;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-card);
 }
 
 .reg-panel__eyebrow {
-  font-size: var(--text-label);
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--color-brand);
 }
 
 .reg-panel__heading {
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--color-ink);
   margin: 0;
 }
 
 .reg-panel__text {
+  font-size: 15px;
   color: var(--color-ink-muted);
   margin: 0;
 }
@@ -110,21 +144,31 @@
 .reg-role-card {
   display: flex;
   align-items: center;
-  height: 52px;
-  padding: 0 var(--space-4);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
-  color: var(--color-brand);
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--color-ink-soft);
   font: inherit;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  transition: border-color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.reg-role-card:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
 }
 
 .reg-role-card.is-selected {
   background-color: var(--color-brand-soft);
   border-color: var(--color-brand);
+  color: var(--color-brand);
 }
 
 .reg-form {
@@ -146,18 +190,28 @@
 }
 
 .reg-field label {
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--color-ink);
 }
 
 .reg-field input {
   height: 48px;
-  padding: 0 var(--space-4);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
+  padding: 0 14px;
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
+  background-color: #ffffff;
   font: inherit;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--color-ink);
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+}
+
+.reg-field input:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(23, 56, 40, 0.12);
+  outline: none;
 }
 
 .reg-field input::placeholder {
@@ -166,95 +220,138 @@
 
 .reg-hint {
   margin: 0;
-  font-size: var(--text-label);
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-ink-muted);
 }
 
 .reg-check {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-2);
-  font-size: var(--text-small);
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-ink);
+  cursor: pointer;
+}
+
+.reg-check input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  flex: none;
+  accent-color: var(--color-brand);
+  cursor: pointer;
 }
 
 .reg-check a {
   color: var(--color-brand);
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .reg-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 52px;
-  border-radius: var(--radius-lg);
+  height: 50px;
+  padding: 0 24px;
+  border-radius: 12px;
   font: inherit;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
 }
 
 .reg-button--primary {
   border: none;
-  background-color: var(--color-brand);
+  background-color: #d96b27;
   color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--shadow-cta);
 }
 
 .reg-button--primary:hover {
-  background-color: var(--color-brand-hover);
+  background-color: #c25b1c;
+  transform: translateY(-1px);
+}
+
+.reg-button--primary:active {
+  transform: translateY(1px);
 }
 
 .reg-button--ghost {
-  border: 1px solid var(--color-border-strong);
-  background-color: var(--color-surface);
+  border: 1px solid #d6cfc2;
+  background-color: #ffffff;
   color: var(--color-brand);
+}
+
+.reg-button--ghost:hover {
+  background-color: var(--color-brand-soft);
+  border-color: var(--color-brand);
 }
 
 .reg-note {
   margin: 0;
-  font-size: var(--text-label);
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--color-ink-muted);
 }
 
 .reg-story--tall {
-  min-height: 1400px;
+  height: 560px;
+  min-height: 0;
 }
 
 .reg-section-title {
   margin: var(--space-4) 0 0;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-ink);
 }
 
 .reg-field select {
   height: 48px;
-  padding: 0 var(--space-4);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
+  padding: 0 14px;
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
+  background-color: #ffffff;
   font: inherit;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--color-ink);
+}
+
+.reg-field select:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(23, 56, 40, 0.12);
+  outline: none;
 }
 
 .reg-doc {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: var(--space-4);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
-  font-size: var(--text-small);
+  padding: 16px;
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 15px;
 }
 
 .reg-doc span {
-  font-size: var(--text-label);
+  font-size: 14px;
   color: var(--color-ink-muted);
 }
 
 .reg-doc__pick {
+  font-size: 15px;
   color: var(--color-brand);
   font-weight: 600;
   cursor: pointer;
@@ -265,11 +362,13 @@
 }
 
 .reg-review {
-  padding: var(--space-4) var(--space-4);
-  border-radius: var(--radius-lg);
+  padding: 16px;
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
   background-color: var(--color-brand-soft);
   color: var(--color-ink-soft);
-  font-size: var(--text-small);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .reg-review strong {
@@ -282,6 +381,7 @@
 
 .reg-pending-card__status {
   margin: 0;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-warning);
 }
@@ -295,30 +395,32 @@
 
 .reg-pending-card {
   padding: var(--space-6);
-  border: 1px solid var(--color-border);
+  border: 1px solid #d6cfc2;
   border-radius: var(--radius-xl);
   background-color: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
 
 .reg-step {
-  padding: var(--space-4) var(--space-4);
-  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid #d6cfc2;
+  border-radius: 8px;
   background-color: var(--color-surface);
 }
 
 .reg-step.is-current {
   background-color: var(--color-brand-soft);
+  border-color: var(--color-brand);
 }
 
 .reg-step h3 {
   margin: 0 0 4px;
-  font-size: var(--text-body);
+  font-size: 15px;
 }
 
 .reg-step p {
   margin: 0;
-  font-size: var(--text-small);
+  font-size: 14px;
   color: var(--color-ink-muted);
 }
 
@@ -328,11 +430,26 @@
     gap: var(--space-6);
   }
 
-  .reg-story {
+  .reg-story,
+  .reg-story--tall {
+    position: static;
+    height: auto;
     min-height: 360px;
+    padding: 24px;
+  }
+
+  .reg-panel {
+    padding: 24px;
   }
 
   .reg-shell {
     padding: var(--space-4);
+  }
+}
+
+@media (max-width: 560px) {
+  .reg-row,
+  .reg-role-cards {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

@@ -7,17 +7,21 @@ export default function PendingApprovalPage() {
     <Layout>
       <div className="reg-shell">
         <div className="reg-split">
-          <aside className="reg-story reg-story--tall">
+          <aside className="reg-story">
+            <img
+              className="reg-story__photo"
+              src="/images/story/farm-landscape.jpg"
+              alt=""
+              aria-hidden="true"
+            />
             <span className="reg-badge">Good days grow here</span>
             <div className="reg-story__body">
-              <p className="reg-story__eyebrow">Real farms. Real connections.</p>
+              <p className="reg-story__eyebrow">Real farms · Real connections</p>
               <h2 className="reg-story__heading">
-                A little closer to
-                <br />
-                the good life.
+                Discover &amp; manage local farm visits.
               </h2>
               <p className="reg-story__text">
-                For the people who love the countryside, and the people who make it feel like home.
+                Connect directly with verified farms and manage your bookings in one place.
               </p>
             </div>
           </aside>

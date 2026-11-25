@@ -52,22 +52,11 @@ export default function AdminSettingsPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / Settings</p>
-          <p>
-            Rules for bookings, tickets, reviews and account security. Changes apply platform-wide.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button" type="button">Export settings</button>
         </div>
       </section>
-
-      <div className="admin-callout">
-        <Icon name="info" />
-        <div>
-          <strong>Changes apply platform-wide.</strong> Saving records your account and the timestamp. Review
-          open and historical change records before editing.
-        </div>
-      </div>
 
       <section className="admin-grid">
         <div className="admin-panel">
@@ -110,7 +99,7 @@ export default function AdminSettingsPage() {
           </div>
 
           <p className="admin-note">
-            Password changes end other active sessions. Administrator actions stay recorded.
+            Password changes end other active sessions.
           </p>
 
           <h2 className="admin-panel__title" style={{ fontSize: 20 }}>Recent activity</h2>
@@ -128,14 +117,6 @@ export default function AdminSettingsPage() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="admin-callout admin-callout--alert">
-            <Icon name="info" />
-            <div>
-              <strong>Unsaved changes.</strong> Save changes before leaving. Changes apply to future bookings
-              and active listings.
-            </div>
           </div>
 
           <div className="admin-actions">
@@ -179,20 +160,8 @@ export default function AdminSettingsPage() {
             <label htmlFor="st-effective">Change to take effect</label>
             <input id="st-effective" type="date" />
           </div>
-
-          <div className="admin-callout">
-            <Icon name="info" />
-            <div>
-              Settings changes are immediate unless a later date is set. Confirmation requires your written
-              approval before saving.
-            </div>
-          </div>
         </div>
       </section>
-
-      <p className="admin-note">
-        Review changes 12 Nov 2026, 9:45 AM &middot; Last saved 4 Nov 2026 &middot; Policy summary.
-      </p>
     </AdminLayout>
   );
 }

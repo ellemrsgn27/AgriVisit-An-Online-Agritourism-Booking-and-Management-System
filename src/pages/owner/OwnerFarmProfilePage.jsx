@@ -8,7 +8,6 @@ export default function OwnerFarmProfilePage() {
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Farm profile</h1>
-          <p className="console-heading__text">This is how your farm appears on the map and in search.</p>
         </div>
         <button className="button button--primary" type="submit" form="farm-profile-form">
           Save changes
@@ -87,7 +86,6 @@ export default function OwnerFarmProfilePage() {
           <section className="console-card">
             <h2 className="console-card__title">Location map pin</h2>
             <div className="farm-map-preview"><Icon name="pin" /><span>{farm.city}</span><small>{farm.pin}</small></div>
-            <p className="form-hint">Map pin preview for guests planning their visit.</p>
           </section>
         </aside>
       </form>

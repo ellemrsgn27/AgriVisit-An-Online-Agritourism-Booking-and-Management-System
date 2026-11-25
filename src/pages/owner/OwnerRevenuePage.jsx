@@ -28,9 +28,6 @@ export default function OwnerRevenuePage() {
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Revenue dashboard</h1>
-          <p className="console-heading__text">
-            What you earned, what it cost, and which experiences guests choose.
-          </p>
         </div>
         <div className="console-heading__actions console-heading__actions--nowrap">
           <div className="input input--select console-range">

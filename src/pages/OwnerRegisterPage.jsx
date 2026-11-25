@@ -14,27 +14,30 @@ export default function OwnerRegisterPage() {
     <Layout>
       <div className="reg-shell">
         <div className="reg-split">
-          <aside className="reg-story reg-story--tall">
+          <aside className="reg-story">
+            <img
+              className="reg-story__photo"
+              src="/images/story/farm-landscape.jpg"
+              alt=""
+              aria-hidden="true"
+            />
             <span className="reg-badge">Good days grow here</span>
             <div className="reg-story__body">
-              <p className="reg-story__eyebrow">Real farms. Real connections.</p>
+              <p className="reg-story__eyebrow">Real farms · Real connections</p>
               <h2 className="reg-story__heading">
-                A little closer to
-                <br />
-                the good life.
+                Discover &amp; manage local farm visits.
               </h2>
               <p className="reg-story__text">
-                For the people who love the countryside, and the people who make it feel like home.
+                Connect directly with verified farms and manage your bookings in one place.
               </p>
             </div>
           </aside>
 
           <section className="reg-panel">
-            <p className="reg-panel__eyebrow">Grow with AgriVisit</p>
-            <h1 className="reg-panel__heading">Open your gates to a good farm day.</h1>
+            <p className="reg-panel__eyebrow">Farm owner registration</p>
+            <h1 className="reg-panel__heading">Register your farm</h1>
             <p className="reg-panel__text">
-              Create your owner account and submit your farm for administrator review. Your farm stays private until
-              approved.
+              Create an owner account and submit your farm documents for verification.
             </p>
 
             <div className="reg-role-cards">

@@ -106,9 +106,9 @@ export default function DiscoveryPage() {
         <div className="page-shell">
           <section className="page-introduction">
             <div className="page-introduction__copy">
-              <h1 className="page-introduction__heading">A good day is closer than you think.</h1>
+              <h1 className="page-introduction__heading">Explore local farms</h1>
               <p className="page-introduction__description">
-                Discover small farms and big-hearted experiences around you.
+                Search verified farms by location, experience type, price, and rating.
               </p>
             </div>
           </section>
@@ -210,7 +210,7 @@ export default function DiscoveryPage() {
               <Icon className="button__icon" name="sliders" />
               <span>{filtersShown ? 'Filters shown' : 'Show filters'}</span>
             </button>
-            <p className="filter-options__note">Search farms anywhere in the Philippines</p>
+            <p className="filter-options__note">Search verified farms by location</p>
             <button
               className="link-button"
               type="button"

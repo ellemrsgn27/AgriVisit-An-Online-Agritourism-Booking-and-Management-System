@@ -32,9 +32,6 @@ export default function OwnerReviewsPage() {
       <div className="console-heading">
         <div>
           <h1 className="console-heading__title">Reviews</h1>
-          <p className="console-heading__text">
-            Only visitors with a completed visit can review. Written reviews appear after moderation.
-          </p>
         </div>
         <div className="rating-summary">
           <span className="rating-summary__highlight"><span aria-hidden="true">★</span>
@@ -103,7 +100,6 @@ export default function OwnerReviewsPage() {
             const percent = items.length ? (count / items.length) * 100 : 0;
             return <div className="rating-breakdown-row" key={stars}><span>{stars} star</span><div className="rating-breakdown-track"><span style={{ width: `${percent}%` }} /></div><strong>{count}</strong></div>;
           })}
-          <p className="form-hint">Based on reviews currently loaded in your dashboard.</p>
         </section>
         <form className="console-card owner-reply-composer" onSubmit={(event) => { event.preventDefault(); if (reply.trim()) { setReplies((list) => [{ id: Date.now(), reviewId: replyTo, text: reply.trim() }, ...list]); setReplySent(true); setReply(''); } }}>
           <h2 className="console-card__title">Reply to guest</h2>

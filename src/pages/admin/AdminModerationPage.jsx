@@ -12,9 +12,6 @@ export default function AdminModerationPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / Reviews &amp; moderation</p>
-          <p>
-            Review pending and flagged content, record moderation decisions and manage community reports.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button" type="button">
@@ -97,7 +94,7 @@ export default function AdminModerationPage() {
             <span className="admin-pill admin-pill--muted">{current.id}</span>
           </div>
 
-          <p className="admin-panel__title" style={{ fontSize: 20 }}>A closer look before it&rsquo;s public.</p>
+          <p className="admin-panel__title" style={{ fontSize: 20 }}>Review inspection</p>
 
           <div className="admin-callout admin-callout--alert">
             <Icon name="info" />
@@ -133,17 +130,13 @@ export default function AdminModerationPage() {
             <button className="admin-button admin-button--destructive" type="button">Hide review</button>
             <button className="admin-button" type="button">Publish review</button>
           </div>
-
-          <p className="admin-note">
-            Every decision is logged. Hiding a review notifies the author and keeps it off the farm page.
-          </p>
         </div>
       </section>
 
       <section className="admin-grid">
         <div className="admin-panel">
           <div className="admin-panel__head">
-            <h2 className="admin-panel__title">The people behind the visits.</h2>
+            <h2 className="admin-panel__title">User accounts</h2>
             <span className="admin-pill admin-pill--muted">2,900 accounts</span>
           </div>
 
@@ -163,11 +156,6 @@ export default function AdminModerationPage() {
               </div>
             ))}
           </div>
-
-          <p className="admin-note">
-            Edit roles, suspend access or restore accounts. Administrative changes require a reason and are
-            recorded in the activity log.
-          </p>
         </div>
 
         <div className="admin-panel">
@@ -191,19 +179,8 @@ export default function AdminModerationPage() {
               </div>
             ))}
           </div>
-
-          <p className="admin-note">
-            Categories in use can be archived, not deleted. Archived categories never appear in new listings.
-          </p>
         </div>
       </section>
-
-      <div className="admin-callout">
-        <Icon name="info" />
-        <div>
-          Moderation decisions need a reason and a record. Reviews stay visible until a decision is saved.
-        </div>
-      </div>
     </AdminLayout>
   );
 }

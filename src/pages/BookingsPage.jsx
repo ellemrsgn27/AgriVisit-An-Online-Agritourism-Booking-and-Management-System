@@ -56,8 +56,7 @@ export default function BookingsPage() {
       <div className="page-shell bookings-page">
         <section className="page-introduction page-introduction--split bookings-page__header">
           <div className="page-introduction__copy">
-            <h1 className="page-introduction__heading">Your next good day is booked.</h1>
-            <p className="page-introduction__description">All your farm days, tickets, and little memories in one place.</p>
+            <h1 className="page-introduction__heading">My bookings</h1>
           </div>
           <span className="bookings-summary-badge">{upcomingCount} upcoming · {completedCount} completed</span>
         </section>

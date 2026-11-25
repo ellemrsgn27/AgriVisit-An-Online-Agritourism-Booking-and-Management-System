@@ -14,10 +14,6 @@ export default function AdminApprovalsPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / Farm approvals</p>
-          <p>
-            Review farm registrations, check documents and publish approved farms. Every decision records
-            the administrator, the date and your note.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button" type="button">
@@ -41,8 +37,7 @@ export default function AdminApprovalsPage() {
         <article className="admin-metric" style={{ background: '#eaf0e4' }}>
           <p className="admin-metric__label"><span>Review process</span></p>
           <p className="admin-note">
-            Approve only when farm details, contact information and documents match. Anything missing
-            goes back to the owner with a reason.
+            Verify farm details, contact info, and documents before approving.
           </p>
         </article>
       </section>
@@ -73,7 +68,6 @@ export default function AdminApprovalsPage() {
             <h2 className="admin-panel__title">Registration queue</h2>
             <span className="admin-pill admin-pill--pending">4 pending</span>
           </div>
-          <p className="admin-note">Select a registration to review its documents.</p>
 
           <div className="admin-table">
             <div className="admin-table__head" style={columns}>
@@ -136,21 +130,8 @@ export default function AdminApprovalsPage() {
               Reject registration
             </button>
           </div>
-
-          <div className="admin-callout">
-            <Icon name="info" />
-            <div>
-              Approve to publish this farm profile and enable experience creation. This action is recorded
-              with Jules Reyes, the date and your decision note.
-            </div>
-          </div>
         </div>
       </section>
-
-      <p className="admin-note">
-        Illustrative registration data &middot; 12 Nov 2026. Selecting an action requires confirmation before
-        the application changes state.
-      </p>
     </AdminLayout>
   );
 }

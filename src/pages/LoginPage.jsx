@@ -11,15 +11,21 @@ export default function LoginPage() {
       <div className="auth-shell">
         <div className="auth-split">
           <aside className="auth-story">
-            <p className="auth-story__eyebrow">Real farms. Real connections.</p>
-            <h2 className="auth-story__heading">
-              A little closer
-              <br />
-              to the good life.
-            </h2>
-            <p className="auth-story__text">
-              For the people who love the countryside, and the people who make it feel like home.
-            </p>
+            <img
+              className="auth-story__photo"
+              src="/images/story/farm-landscape.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+            <div className="auth-story__content">
+              <p className="auth-story__eyebrow">Real farms · Real connections</p>
+              <h2 className="auth-story__heading">
+                Discover &amp; manage local farm visits.
+              </h2>
+              <p className="auth-story__text">
+                Connect directly with verified farms and manage your bookings in one place.
+              </p>
+            </div>
           </aside>
 
           <section className="auth-form-panel">

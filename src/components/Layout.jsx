@@ -72,12 +72,6 @@ export default function Layout({ children }) {
       </header>
 
       <main id="main">{children}</main>
-
-      <footer className="site-footer">
-        <div className="site-footer__inner">
-          <p>AgriVisit — booking and management for local farm experiences.</p>
-        </div>
-      </footer>
     </>
   );
 }

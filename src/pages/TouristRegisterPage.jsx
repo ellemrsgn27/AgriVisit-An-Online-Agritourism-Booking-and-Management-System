@@ -18,25 +18,29 @@ export default function TouristRegisterPage() {
       <div className="reg-shell">
         <div className="reg-split">
           <aside className="reg-story">
+            <img
+              className="reg-story__photo"
+              src="/images/story/farm-landscape.jpg"
+              alt=""
+              aria-hidden="true"
+            />
             <span className="reg-badge">Good days grow here</span>
             <div className="reg-story__body">
-              <p className="reg-story__eyebrow">Real farms. Real connections.</p>
+              <p className="reg-story__eyebrow">Real farms · Real connections</p>
               <h2 className="reg-story__heading">
-                A little closer to
-                <br />
-                the good life.
+                Discover &amp; manage local farm visits.
               </h2>
               <p className="reg-story__text">
-                For the people who love the countryside, and the people who make it feel like home.
+                Connect directly with verified farms and manage your bookings in one place.
               </p>
             </div>
           </aside>
 
           <section className="reg-panel">
-            <p className="reg-panel__eyebrow">Find your next farm day</p>
-            <h1 className="reg-panel__heading">A little closer to the countryside.</h1>
+            <p className="reg-panel__eyebrow">Tourist registration</p>
+            <h1 className="reg-panel__heading">Create a tourist account</h1>
             <p className="reg-panel__text">
-              Create your tourist account to book local experiences, keep your tickets and review completed visits.
+              Book farm visits and manage your QR day passes.
             </p>
 
             <div className="reg-role-cards">
@@ -87,10 +91,6 @@ export default function TouristRegisterPage() {
                   I agree to the <a href="#terms">Terms of service</a> and <a href="#privacy">Privacy policy</a>.
                 </span>
               </label>
-              <p className="reg-hint">
-                Tourist accounts can manage only their own bookings, tickets and reviews. Reviews are available after a
-                completed visit.
-              </p>
 
               <button className="reg-button reg-button--primary" type="submit">
                 Create tourist account →
@@ -99,8 +99,6 @@ export default function TouristRegisterPage() {
                 Already registered? Log in
               </Link>
             </form>
-
-            <p className="reg-note">Registration does not grant farm-owner or administrator access.</p>
           </section>
         </div>
       </div>

@@ -51,7 +51,6 @@ export default function AdminLayout({ title, crumb, children }) {
 
       <div className="admin-main">
         <header className="admin-topbar">
-          <p className="admin-topbar__crumb">{crumb}</p>
           <div className="admin-topbar__account">
             <NavLink className="admin-topbar__site" to="/">View website ↗</NavLink>
             <span className="admin-topbar__bell" aria-hidden="true">

@@ -66,15 +66,12 @@ export default function HomePage() {
       <div className="page-shell home-page-shell">
         <section className="home-hero">
           <div className="home-hero__copy">
-            <p className="eyebrow home-hero__eyebrow">Rooted in local. Made for you.</p>
+            <p className="eyebrow home-hero__eyebrow">ONLINE AGRITOURISM BOOKING</p>
             <h1 className="home-hero__heading">
-              A little closer
-              <br />
-              to the good life.
+              Book authentic farm experiences.
             </h1>
             <p className="home-hero__description">
-              Trade the everyday for orchard paths, honest food, and the people who grow it. Your
-              next farm day is closer than you think.
+              Explore working farms, harvest sessions, and farm-to-table visits—with instant digital QR gate passes.
             </p>
             <div className="home-hero__actions">
               <Link className="button button--primary" to="/register/tourist">
@@ -176,13 +173,12 @@ export default function HomePage() {
         <section className="home-discover" aria-labelledby="home-discover-heading">
           <div className="home-discover__intro">
             <div className="home-discover__copy">
-              <p className="eyebrow">Fresh air. Fresh perspectives.</p>
+              <p className="eyebrow">CURATED EXPERIENCES</p>
               <h2 className="home-discover__heading" id="home-discover-heading">
-                Find your kind of countryside.
+                Explore farm experiences
               </h2>
               <p className="home-discover__description">
-                A morning among the trees. A new skill. A meal that tastes like the place it came
-                from.
+                Book fruit picking, hands-on workshops, and farm-to-table meals directly with local growers.
               </p>
             </div>
             <Link className="button button--ghost" to="/register/tourist">
@@ -252,10 +248,10 @@ export default function HomePage() {
               <Icon name="pin" />
               <div>
                 <p className="home-map-callout__title">
-                  Your next slow Sunday is on the map.
+                  Browse farms on the interactive map
                 </p>
                 <p className="home-map-callout__text">
-                  Explore 48 independent farms.
+                  Explore 48 verified independent farms.
                 </p>
               </div>
             </div>
@@ -276,15 +272,12 @@ export default function HomePage() {
             loading="lazy"
           />
           <div className="home-invite__copy">
-            <p className="eyebrow">For the people who grow</p>
+            <p className="eyebrow">FOR FARM OWNERS</p>
             <h2 className="home-invite__heading" id="home-invite-heading">
-              Your farm has a story.
-              <br />
-              Let people be part of it.
+              Host visitors on your farm.
             </h2>
             <p className="home-invite__description">
-              Turn what you already love into a little more income. Share your farm, set your own
-              schedules, and welcome guests on your terms. We&rsquo;ll keep the bookings organized.
+              List your experiences, manage session capacities, and check guests in with QR passes.
             </p>
             <div className="home-invite__actions">
               <Link className="button button--primary" to="/register/owner">

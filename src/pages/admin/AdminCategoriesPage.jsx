@@ -10,10 +10,6 @@ export default function AdminCategoriesPage() {
       <section className="admin-intro">
         <div className="admin-intro__copy">
           <p className="admin-eyebrow">Administration / Categories</p>
-          <p>
-            Keep categories clear and useful so visitors can find the right farm day. Categories are shared
-            by discovery filters and farm experience listings.
-          </p>
         </div>
         <div className="admin-actions">
           <button className="admin-button admin-button--primary" type="button">
@@ -72,10 +68,6 @@ export default function AdminCategoriesPage() {
               </div>
             ))}
           </div>
-
-          <p className="admin-note">
-            Categories in use can be archived, not deleted. Archived categories never appear in new listings.
-          </p>
         </div>
 
         <div className="admin-panel">
@@ -97,11 +89,6 @@ export default function AdminCategoriesPage() {
             <button className="admin-button admin-button--primary" type="button">Create category</button>
             <button className="admin-button" type="button">Discard draft</button>
           </div>
-
-          <p className="admin-note">
-            Check for duplicate names first. New types should stay relevant to agritourism and the approved
-            discovery taxonomy.
-          </p>
         </div>
       </section>
 
@@ -123,10 +110,6 @@ export default function AdminCategoriesPage() {
             </div>
           ))}
         </div>
-
-        <p className="admin-note">
-          Saved edits and archive decisions record the administrator and timestamp.
-        </p>
       </section>
     </AdminLayout>
   );
