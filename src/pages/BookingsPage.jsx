@@ -71,7 +71,7 @@ export default function BookingsPage() {
             <article className="farm-impact__card"><h3>Farms supported</h3><strong>{supportedFarmCount} active farms</strong><p>₱{supportedTotal.toLocaleString('en-PH')} in confirmed &amp; completed bookings</p></article>
             <article className="farm-impact__card"><h3>Visit progress</h3><strong>{completedCount} completed · {upcomingCount} upcoming</strong><p>Past visits {completedCount} · Upcoming {upcomingCount}</p></article>
             <article className="farm-impact__card"><h3>Harvest &amp; eco impact</h3><strong>{completedCount * 8} kg produce harvested</strong><p>{completedCount} zero-waste tour completed · {upcomingCount} scheduled</p></article>
-            <article className="farm-impact__card farm-impact__card--tier"><h3>Steward tier</h3><strong>Harvester · Level 2</strong><div className="farm-impact__progress" role="progressbar" aria-label="Progress to Farm Steward perk" aria-valuemin="0" aria-valuemax="3" aria-valuenow={Math.min(3, completedCount + 1)}><span style={{ width: `${Math.min(100, Math.round((completedCount + 1) / 3 * 100))}%` }} /></div><p>{upcomingCount ? 'Complete 1 upcoming visit to unlock Farm Steward · Level 3' : 'Book a visit to unlock Farm Steward · Level 3'}</p></article>
+            <article className="farm-impact__card farm-impact__card--tier"><h3>Steward tier</h3><strong>Harvester · Level 2</strong><div className="farm-impact__progress" role="progressbar" aria-label="Progress to Farm Steward perk" aria-valuemin="0" aria-valuemax="3" aria-valuenow={Math.min(3, completedCount + 1)}><span style={{ '--progress-scale': Math.min(1, (completedCount + 1) / 3) }} /></div><p>{upcomingCount ? 'Complete 1 upcoming visit to unlock Farm Steward · Level 3' : 'Book a visit to unlock Farm Steward · Level 3'}</p></article>
           </div>
         </section>
 
@@ -117,7 +117,7 @@ export default function BookingsPage() {
             </article>)}
           </section>
 
-          {selected && <aside className="booking-inspector" aria-live="polite">
+          {selected && <aside key={selected.id} className="booking-inspector" aria-live="polite">
             {selected.confirmed ? <>
               <p className="booking-inspector__eyebrow">Your farm day pass</p>
               <h2 className="booking-inspector__title">{selected.farm}</h2>

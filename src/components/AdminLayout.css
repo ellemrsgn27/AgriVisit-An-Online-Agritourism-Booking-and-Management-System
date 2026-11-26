@@ -802,3 +802,30 @@
 .admin-intro__copy p, .admin-callout { font-size: 14px; color: #2A352F; }
 .admin-table__head { font-size: 14px; }
 .admin-table__row { font-size: 15px; color: #2A352F; }
+
+.admin-nav__link,
+.admin-button {
+  transition: color 150ms ease-out, background-color 150ms ease-out,
+    border-color 150ms ease-out, box-shadow 150ms ease-out, transform 150ms ease-out;
+}
+
+.admin-button:active {
+  transform: scale(.98);
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  transition: border-color 150ms ease-out, background-color 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-nav__link,
+  .admin-button,
+  .admin-field input,
+  .admin-field select,
+  .admin-field textarea {
+    transition-duration: .01ms;
+  }
+}

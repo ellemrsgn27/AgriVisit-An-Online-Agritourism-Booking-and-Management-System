@@ -132,8 +132,8 @@ export default function StoryPage() {
 
         <section className="our-story__guest">
           <div className="our-story__guest-copy">
-            <p className="our-story__label">BE A GUEST OF THE LAND</p>
-            <h2 className="our-story__title-lg">Leave room for the rhythms of a real farm.</h2>
+            <p className="our-story__label">VISITOR GUIDELINES</p>
+            <h2 className="our-story__title-lg">What to expect on a working farm.</h2>
           </div>
           <ul className="our-story__rules">
             {GUEST_RULES.map((rule) => (
@@ -146,11 +146,10 @@ export default function StoryPage() {
         </section>
 
         <section className="our-story__system">
-          <h2 className="our-story__system-title">A thoughtful system for a local purpose.</h2>
+          <h2 className="our-story__system-title">Built for tourists, hosts, and administrators.</h2>
           <p className="our-story__body">
-            AgriVisit is a proposed online agritourism booking and management system with an interactive farm map,
-            QR ticketing and a revenue dashboard. Tourist, farm owner and administrator workspaces are designed
-            around their different responsibilities.
+            AgriVisit is an online agritourism booking and management platform featuring an interactive farm map,
+            digital QR day passes, and operational dashboards tailored to each role.
           </p>
           <p className="our-story__credits">
             PROJECT PROPONENTS · Buenviaje, Lance T. · Lunar, Von Andrei G. · Silla, Jisselle Mae M.
@@ -159,8 +158,8 @@ export default function StoryPage() {
 
         <section className="our-story__closing">
           <div className="our-story__closing-copy">
-            <h2 className="our-story__title-lg">There’s a good day growing nearby.</h2>
-            <p className="our-story__body">Find your next experience, share your farm, or return to your workspace.</p>
+            <h2 className="our-story__title-lg">Ready to explore or host?</h2>
+            <p className="our-story__body">Browse verified farm experiences or submit your farm for listing.</p>
           </div>
           <div className="our-story__closing-actions">
             <div className="our-story__closing-buttons">
@@ -171,9 +170,6 @@ export default function StoryPage() {
                 Register your farm
               </Link>
             </div>
-            <Link className="our-story__owner-link" to="/login">
-              Owner sign in
-            </Link>
           </div>
         </section>
       </main>

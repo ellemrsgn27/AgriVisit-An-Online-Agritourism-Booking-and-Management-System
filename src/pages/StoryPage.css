@@ -1,6 +1,19 @@
 .our-story {
   background: var(--color-canvas);
   color: var(--color-ink);
+  width: 100%;
+  max-width: calc(var(--page-max-width) + 2 * var(--page-gutter));
+  margin: 0 auto;
+  padding: 24px var(--page-gutter) 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.our-story > section {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .our-story__label {
@@ -272,7 +285,7 @@
   gap: 16px;
   padding: 64px 110px;
   border-bottom: 1px solid var(--color-border);
-  max-width: 1200px;
+  max-width: none;
 }
 
 .our-story__credits {
@@ -308,12 +321,6 @@
 .our-story__closing-buttons {
   display: flex;
   gap: 12px;
-}
-
-.our-story__owner-link {
-  font-size: 12px;
-  color: var(--color-brand);
-  text-decoration: none;
 }
 
 @media (max-width: 1100px) {
@@ -368,7 +375,7 @@
 }
 
 .our-story__label, .our-story__eyebrow, .our-story__badge { font-size: 12px; }
-.our-story__figure figcaption, .our-story__credits, .our-story__owner-link,
+.our-story__figure figcaption, .our-story__credits,
 .our-story__body, .our-story__lead { font-size: 14px; color: #2A352F; }
 .our-story__system { gap: 14px; padding: 40px 56px; }
 .our-story__closing { gap: 24px; padding: 40px 32px; }
@@ -498,7 +505,7 @@
 }
 
 .our-story__label, .our-story__eyebrow, .our-story__badge { font-size: 12px; }
-.our-story__figure figcaption, .our-story__credits, .our-story__owner-link,
+.our-story__figure figcaption, .our-story__credits,
 .our-story__body, .our-story__lead, .our-story__button { font-size: 14px; }
 .our-story__hero, .our-story__why, .our-story__growers, .our-story__guest { padding: 36px; }
 .our-story__system { gap: 14px; padding: 36px 48px; }
