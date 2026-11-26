@@ -173,12 +173,6 @@ Oversee and manage the entire AgriVisit platform to ensure that all system activ
 
 ---
 
-## UML Diagram
-
-<br>
-
----
-
 ## Flowchart
 
 <br>
