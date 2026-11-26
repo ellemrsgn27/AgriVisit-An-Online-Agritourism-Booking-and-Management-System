@@ -175,7 +175,7 @@ Oversee and manage the entire AgriVisit platform to ensure that all system activ
 
 ## Flowchart
 
-![AgriVisit Flowchart](AgriVisit-Flowchart.jpg)
+![AgriVisit Flowchart](AgriVisitFlowchart.jpg)
 
 <br>
 
