@@ -10,6 +10,8 @@ const initialBookings = [
   { id: 'AGV-261108-069', status: 'cancelled', label: 'Cancelled', statusClass: 'cancelled', farm: 'Sinta Hills Farm', name: 'Working farm tour', detail: '8 Nov 2026 · 1 adult', price: '₱450 fully refunded', guests: 1, total: 450, photo: '/images/story/farm-growers.jpg' },
 ];
 
+const savedBookingsKey = 'agrivisit-confirmed-bookings';
+
 const tabs = [
   { id: 'all', label: 'All bookings' }, { id: 'upcoming', label: 'Upcoming' },
   { id: 'past', label: 'Past visits' }, { id: 'cancelled', label: 'Cancelled' },
@@ -27,23 +29,22 @@ function ticketPayload(booking) {
 export default function BookingsPage() {
   const location = useLocation();
   const checkoutBooking = location.state?.confirmedBooking;
-  const [bookings, setBookings] = useState(() => initialBookings.map((booking) => {
-    if (booking.id !== checkoutBooking?.id) return booking;
-    const updated = { ...booking, ...checkoutBooking };
-    const paymentState = updated.paymentMethodValue === 'cash' ? 'due at farm' : 'paid in full';
-    return {
-      ...updated,
-      detail: `Sat, 14 Nov 2026 · 9:00–11:00 AM · ${updated.guests} adults`,
-      price: `₱${updated.total.toLocaleString('en-PH')} ${paymentState} · ${updated.paymentMethod}`,
-      confirmed: true,
-    };
-  }));
+  const [bookings, setBookings] = useState(() => {
+    let savedBookings = [];
+    try { savedBookings = JSON.parse(localStorage.getItem(savedBookingsKey) || '[]'); } catch { savedBookings = []; }
+    const base = [...initialBookings, ...savedBookings];
+    return checkoutBooking && !base.some((booking) => booking.id === checkoutBooking.id) ? [...base, checkoutBooking] : base;
+  });
   const [tab, setTab] = useState('all');
+  const [impactOpen, setImpactOpen] = useState(false);
   const [selectedId, setSelectedId] = useState('AGV-261114-084');
   const visible = bookings.filter((booking) => tab === 'all' || booking.status === tab);
   const selected = visible.find((booking) => booking.id === selectedId) || visible[0];
   const upcomingCount = bookings.filter((booking) => booking.status === 'upcoming').length;
   const completedCount = bookings.filter((booking) => booking.statusClass === 'completed').length;
+  const supportedBookings = bookings.filter((booking) => booking.status !== 'cancelled');
+  const supportedFarmCount = new Set(supportedBookings.map((booking) => booking.farm)).size;
+  const supportedTotal = supportedBookings.reduce((sum, booking) => sum + (booking.total ?? 0), 0);
 
   function cancel(id) {
     setBookings((list) => list.map((booking) => booking.id === id
@@ -61,12 +62,38 @@ export default function BookingsPage() {
           <span className="bookings-summary-badge">{upcomingCount} upcoming · {completedCount} completed</span>
         </section>
 
+        <section className="farm-impact" aria-labelledby="farm-impact-title">
+          <div className="farm-impact__heading">
+            <h2 id="farm-impact-title">Your farm impact</h2>
+            <button className="farm-impact__view" type="button" onClick={() => setImpactOpen(true)}>View impact breakdown</button>
+          </div>
+          <div className="farm-impact__grid">
+            <article className="farm-impact__card"><h3>Farms supported</h3><strong>{supportedFarmCount} active farms</strong><p>₱{supportedTotal.toLocaleString('en-PH')} in confirmed &amp; completed bookings</p></article>
+            <article className="farm-impact__card"><h3>Visit progress</h3><strong>{completedCount} completed · {upcomingCount} upcoming</strong><p>Past visits {completedCount} · Upcoming {upcomingCount}</p></article>
+            <article className="farm-impact__card"><h3>Harvest &amp; eco impact</h3><strong>{completedCount * 8} kg produce harvested</strong><p>{completedCount} zero-waste tour completed · {upcomingCount} scheduled</p></article>
+            <article className="farm-impact__card farm-impact__card--tier"><h3>Steward tier</h3><strong>Harvester · Level 2</strong><div className="farm-impact__progress" role="progressbar" aria-label="Progress to Farm Steward perk" aria-valuemin="0" aria-valuemax="3" aria-valuenow={Math.min(3, completedCount + 1)}><span style={{ width: `${Math.min(100, Math.round((completedCount + 1) / 3 * 100))}%` }} /></div><p>{upcomingCount ? 'Complete 1 upcoming visit to unlock Farm Steward · Level 3' : 'Book a visit to unlock Farm Steward · Level 3'}</p></article>
+          </div>
+        </section>
+
         <div className="booking-tabs" role="tablist" aria-label="Booking status">
           {tabs.map((item) => {
             const count = item.id === 'all' ? bookings.length : bookings.filter((booking) => booking.status === item.id).length;
             return <button key={item.id} type="button" role="tab" aria-selected={tab === item.id} className={`booking-tabs__tab${tab === item.id ? ' is-active' : ''}`} onClick={() => setTab(item.id)}>{item.label} <span className="booking-tabs__count">{count}</span></button>;
           })}
         </div>
+
+        {impactOpen && <div className="impact-dialog__backdrop" onKeyDown={(event) => { if (event.key === 'Escape') setImpactOpen(false); }} onMouseDown={(event) => { if (event.target === event.currentTarget) setImpactOpen(false); }}>
+          <section className="impact-dialog" role="dialog" aria-modal="true" aria-labelledby="impact-dialog-title">
+            <button className="impact-dialog__close" type="button" aria-label="Close impact breakdown" onClick={() => setImpactOpen(false)}>×</button>
+            <p className="impact-dialog__eyebrow">Your farm impact</p>
+            <h2 id="impact-dialog-title">Impact &amp; rewards breakdown</h2>
+            <h3>Farm contributions</h3>
+            <ul className="impact-dialog__farms"><li><span>Bukid &amp; Bloom · ₱1,000</span><strong>Completed</strong></li><li><span>Hiraya Family Farm · ₱2,050</span><strong>Confirmed</strong></li><li><span>Luntian Grove · ₱2,000</span><strong>Pending</strong></li></ul>
+            <h3>Earned &amp; next-tier badges</h3>
+            <div className="impact-dialog__badges"><span>First Harvest</span><span>Orchard Supporter</span><span className="impact-dialog__badge--locked">🔒 Farm Steward · Complimentary seasonal harvest basket + priority weekend slots</span></div>
+            <Link className="button button--primary impact-dialog__cta" to="/discovery">Book another farm to level up</Link>
+          </section>
+        </div>}
 
         <div className="bookings-master-detail">
           <section className="bookings-list-column" aria-label="Bookings list">

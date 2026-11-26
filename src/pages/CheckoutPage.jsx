@@ -4,7 +4,7 @@ import Layout from '../components/Layout.jsx';
 
 const PRICE = 650;
 const FEE = 100;
-const BOOKING_ID = 'AGV-261114-084';
+const savedBookingsKey = 'agrivisit-confirmed-bookings';
 const sessionOptions = ['9:00 AM · 8 slots left', '11:00 AM · 4 slots left', '2:00 PM · 6 slots left'];
 const paymentOptions = [
   { value: 'gcash', name: 'GCash', note: 'Pay now and your QR is issued immediately.' },
@@ -15,8 +15,9 @@ const paymentOptions = [
 export default function CheckoutPage() {
   const [guests, setGuests] = useState(3);
   const [payment, setPayment] = useState('gcash');
+  const [perkApplied, setPerkApplied] = useState(false);
   const navigate = useNavigate();
-  const total = guests * PRICE + FEE;
+  const total = guests * PRICE + FEE - (perkApplied ? FEE : 0);
 
   function step(delta) {
     setGuests((count) => Math.min(8, Math.max(1, count + delta)));
@@ -25,15 +26,21 @@ export default function CheckoutPage() {
   function confirm(event) {
     event.preventDefault();
     const selectedPayment = paymentOptions.find((option) => option.value === payment);
+    const id = `AGV-${Date.now()}`;
+    const paymentState = selectedPayment.value === 'cash' ? 'due at farm' : 'paid in full';
+    const booking = {
+      id, status: 'upcoming', label: 'Confirmed', statusClass: 'confirmed', farm: 'Hiraya Family Farm',
+      name: 'Orchard walk & calamansi picking', detail: `Sat, 14 Nov 2026 · 9:00–11:00 AM · ${guests} adults`,
+      price: `₱${total.toLocaleString('en-PH')} ${paymentState} · ${selectedPayment.name}${perkApplied ? ' · Harvester perk' : ''}`,
+      guests, total, paymentMethod: selectedPayment.name, paymentMethodValue: selectedPayment.value,
+      photo: '/images/story/farm-growers.jpg', confirmed: true, perkApplied,
+    };
+    let savedBookings = [];
+    try { savedBookings = JSON.parse(localStorage.getItem(savedBookingsKey) || '[]'); } catch { savedBookings = []; }
+    localStorage.setItem(savedBookingsKey, JSON.stringify([...savedBookings, booking]));
     navigate('/bookings', {
       state: {
-        confirmedBooking: {
-          id: BOOKING_ID,
-          guests,
-          total,
-          paymentMethod: selectedPayment.name,
-          paymentMethodValue: selectedPayment.value,
-        },
+        confirmedBooking: booking,
       },
     });
   }
@@ -92,8 +99,10 @@ export default function CheckoutPage() {
                 <dl className="booking-summary__lines">
                   <div><dt>Date</dt><dd>Sat, 14 Nov 2026</dd></div><div><dt>Time</dt><dd>9:00 – 11:00 AM</dd></div>
                   <div><dt>Guests</dt><dd>{guests} adults</dd></div><div><dt>Price per guest</dt><dd>₱{PRICE}</dd></div>
-                  <div><dt>Booking fee</dt><dd>₱{FEE}</dd></div>
+                  <div><dt>Booking fee</dt><dd>{perkApplied ? '₱0' : `₱${FEE}`}</dd></div>
+                  {perkApplied && <div className="booking-summary__discount-row"><dt>Harvester Level 2 perk</dt><dd>-₱100</dd></div>}
                 </dl>
+                <label className={`booking-summary__perk${perkApplied ? ' is-applied' : ''}`}><input type="checkbox" checked={perkApplied} onChange={(event) => setPerkApplied(event.target.checked)} /><span>Apply Harvester Level 2 Perk</span></label>
                 <div className="booking-summary__total-row"><p>Total</p><p>₱{total.toLocaleString('en-PH')}</p></div>
                 <button className="button button--primary booking-summary__cta" type="submit">Confirm booking</button>
                 <p className="booking-summary__note">Free cancellation until 12 Nov, 9:00 AM.</p>
